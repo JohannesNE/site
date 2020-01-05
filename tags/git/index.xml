@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on AU CRU</title>
+    <link>https://au-cru.github.io/site/tags/git/</link>
+    <description>Recent content in Git on AU CRU</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 Apr 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://au-cru.github.io/site/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Keeping track of changes to your files with version control using Git</title>
+      <link>https://au-cru.github.io/site/material/2020-04-10-intro-git/</link>
+      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/material/2020-04-10-intro-git/</guid>
+      <description>NOTE: This is still in development.
+ library(DiagrammeR) install.packages(&amp;quot;rmarkdown&amp;quot;) Session details Objectives To become aware of what “formal” version control is and looks like. To learn about the tools integrated into RStudio to make use of Git. To know the basic, and most commonly used, tools for Git. To know … Git and version control is not, not, easy. It is hard. But it gets easier and it is very worth it to learn.</description>
+    </item>
+    
+  </channel>
+</rss>

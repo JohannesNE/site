@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>data wrangling on AU CRU</title>
+    <link>https://au-cru.github.io/site/tags/data-wrangling/</link>
+    <description>Recent content in data wrangling on AU CRU</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 15 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://au-cru.github.io/site/tags/data-wrangling/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Data wrangling with dplyr, part 1</title>
+      <link>https://au-cru.github.io/site/material/2019-11-15-intro-dplyr/</link>
+      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/material/2019-11-15-intro-dplyr/</guid>
+      <description>Objectives To learn the difference between “messy” and “tidy” data and see the advantages of using data that are consistently structured. To perform simple data transformations and create summaries. To get started with the tools that help tidying up and reshaping the data, and to learn where to find additional information and resources.  At the end of this session you will be able:
+To write code using the %&amp;gt;% operator.</description>
+    </item>
+    
+  </channel>
+</rss>

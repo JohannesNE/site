@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>don&#39;t repeat yourself on AU CRU</title>
+    <link>https://au-cru.github.io/site/tags/dont-repeat-yourself/</link>
+    <description>Recent content in don&#39;t repeat yourself on AU CRU</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 29 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://au-cru.github.io/site/tags/dont-repeat-yourself/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Creating your own functions in R</title>
+      <link>https://au-cru.github.io/site/material/2019-11-29-functions/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/material/2019-11-29-functions/</guid>
+      <description>Resources for learning and help Here for resources
+ Session content Before we begin, we’ll set up an R project, create a folder named R/, and then create a new file in the R/ folder of the project.
+Basic structure of a function In R, all actions are functions. For instance, the + is a function, mean() is a function, [] is a function, and so on. So creating your functions can make doing your work easier and more efficient.</description>
+    </item>
+    
+  </channel>
+</rss>

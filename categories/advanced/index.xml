@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Advanced on AU CRU</title>
+    <link>https://au-cru.github.io/site/categories/advanced/</link>
+    <description>Recent content in Advanced on AU CRU</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://au-cru.github.io/site/categories/advanced/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>First Rhus meeting</title>
+      <link>https://au-cru.github.io/site/material/2019-10-29-1st-rhus-meeting/</link>
+      <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/material/2019-10-29-1st-rhus-meeting/</guid>
+      <description>Purpose of Rhus useR groups An informal group for meeting and discussing current trends and experiences in R.
+Who is this for? Everybody interested in R, but introductory material is covered by AU-CRU.
+Which subjects are covered in the meetings? Primarily topics for advanced users, e.g.
+ R/Shiny and current trends Reproducible research Innovative ways of data visualisation or promoting data awareness Implementing machine learning and artificial intelligence in industry Networking with other R users in and around Aarhus   | Purpose of Rhus useR groups Who is running the group?</description>
+    </item>
+    
+  </channel>
+</rss>

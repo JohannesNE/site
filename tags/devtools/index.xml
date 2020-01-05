@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>devtools on AU CRU</title>
+    <link>https://au-cru.github.io/site/tags/devtools/</link>
+    <description>Recent content in devtools on AU CRU</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://au-cru.github.io/site/tags/devtools/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>First steps in creating R packages</title>
+      <link>https://au-cru.github.io/site/material/2020-05-08-create-package/</link>
+      <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/material/2020-05-08-create-package/</guid>
+      <description>NOTE: This is still in development.
+ install.packages(c(&amp;quot;devtools&amp;quot;, &amp;quot;usethis&amp;quot;)) Objectives To see that making packages is not as difficult as it seems. To learn about and use the tools to simplify and automate package development. To provide the resources to expand your knowledge on package development.  At the end of this session you will be able:
+Setup up the necessary folders and files for making a package. Fill out some package description information (in the DESCRIPTION and README.</description>
+    </item>
+    
+  </channel>
+</rss>

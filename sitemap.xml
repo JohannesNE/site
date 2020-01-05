@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://au-cru.github.io/site/</loc>
+    <lastmod>2020-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/categories/</loc>
+    <lastmod>2020-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/categories/code-along/</loc>
+    <lastmod>2020-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/devtools/</loc>
+    <lastmod>2020-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/material/2020-05-08-create-package/</loc>
+    <lastmod>2020-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/categories/intermediate/</loc>
+    <lastmod>2020-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/material/</loc>
+    <lastmod>2020-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/package-development/</loc>
+    <lastmod>2020-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/categories/r/</loc>
+    <lastmod>2020-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/r-packages/</loc>
+    <lastmod>2020-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/reproducible-data-analysis/</loc>
+    <lastmod>2020-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/</loc>
+    <lastmod>2020-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/usethis/</loc>
+    <lastmod>2020-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/workflow-management/</loc>
+    <lastmod>2020-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/categories/beginner/</loc>
+    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/material/2020-04-24-proj-management/</loc>
+    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/prodigenr/</loc>
+    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/project-management/</loc>
+    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/r-projects/</loc>
+    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/reproducibility/</loc>
+    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/style-guide/</loc>
+    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/styler/</loc>
+    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/collaboration/</loc>
+    <lastmod>2020-04-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/git/</loc>
+    <lastmod>2020-04-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/github/</loc>
+    <lastmod>2020-04-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/material/2020-04-10-intro-git/</loc>
+    <lastmod>2020-04-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/version-control/</loc>
+    <lastmod>2020-04-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/asking-for-help/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/material/2020-03-27-asking-for-help/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/error-messages/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/r/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/r-documentation/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/reprex/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/reproducible-examples/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/stackoverflow/</loc>
+    <lastmod>2020-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/dynamic-document-generation/</loc>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/markdown/</loc>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/r-markdown/</loc>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/report-writing/</loc>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/reproducible-documents/</loc>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/material/2019-12-13-intro-rmarkdown/</loc>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/rmarkdown/</loc>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/categories/beginner-intermediate/</loc>
+    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/material/2019-11-29-functions/</loc>
+    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/dont-repeat-yourself/</loc>
+    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/efficiency/</loc>
+    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/functions/</loc>
+    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/productivity/</loc>
+    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/tidy-code/</loc>
+    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/data-management/</loc>
+    <lastmod>2019-11-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/data-wrangling/</loc>
+    <lastmod>2019-11-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/material/2019-11-15-intro-dplyr/</loc>
+    <lastmod>2019-11-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/dplyr/</loc>
+    <lastmod>2019-11-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/data-visualization/</loc>
+    <lastmod>2019-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/material/2019-11-01-intro-ggplot2/</loc>
+    <lastmod>2019-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/tags/ggplot2/</loc>
+    <lastmod>2019-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/categories/advanced/</loc>
+    <lastmod>2019-10-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/material/2019-10-29-1st-rhus-meeting/</loc>
+    <lastmod>2019-10-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/categories/lectures/</loc>
+    <lastmod>2019-10-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/categories/rhus/</loc>
+    <lastmod>2019-10-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/contact/</loc>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/license/</loc>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/more-info/</loc>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/past-events/</loc>
+  </url>
+  
+  <url>
+    <loc>https://au-cru.github.io/site/surveys/</loc>
+  </url>
+  
+</urlset>

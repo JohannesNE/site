@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reproducible reports with R Markdown</title>
+  <meta name="author" content="" />
+
+  
+  <meta name="keywords" content="au-cru, programming, rstats, r">
+  
+
+  
+  <meta name="description" content="Do you copy and paste your R output like figures or numbers into Word? Learn how to use R Markdown so you no longer have to copy and paste... let R do it for you!
+">
+  
+
+  <meta name="generator" content="Hugo 0.61.0" />
+
+  <link rel="stylesheet" href="https://au-cru.github.io/site/css/github.css" rel="stylesheet" id="theme-stylesheet">
+  <script src="https://au-cru.github.io/site/js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.10.2/css/all.css">
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  
+  <link href="/site/css/animate.css" rel="stylesheet">
+
+  
+  
+    <link href="/site/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+  
+
+
+  
+  <link href="/site/css/custom.css" rel="stylesheet">
+
+  
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+  <link rel="icon" href="/site/img/favicon.ico?v=2" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/site/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/site/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/site/img/favicon-16x16.png">
+  <link rel="manifest" href="/site/site.webmanifest">
+  <link rel="mask-icon" href="/site/img/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#2d89ef">
+  <meta name="theme-color" content="#ffffff">
+
+  
+
+  <link href="/site/css/owl.carousel.css" rel="stylesheet">
+  <link href="/site/css/owl.theme.css" rel="stylesheet">
+
+  <link rel="alternate" href="https://au-cru.github.io/index.xml" type="application/rss+xml" title="AU CRU">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@">
+  <meta name="twitter:title" content="Reproducible reports with R Markdown">
+  <meta name="twitter:image" content="https://au-cru.github.io/site/">
+  <meta name="twitter:description" content="Do you copy and paste your R output like figures or numbers into Word? Learn how to use R Markdown so you no longer have to copy and paste... let R do it for you!
+">
+
+  
+  <meta property="og:title" content="Reproducible reports with R Markdown" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://au-cru.github.io/site/material/2019-12-13-intro-rmarkdown//" />
+  <meta property="og:image" content="img/logo.png" />
+
+</head>
+
+
+  <body>
+
+    <div id="all">
+
+        <header>
+
+          <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand home" href="https://au-cru.github.io/site/">
+                    <img src="https://au-cru.github.io/site/img/logo.png" alt="Reproducible reports with R Markdown logo" class="hidden-xs hidden-sm">
+                    <img src="https://au-cru.github.io/site/img/logo-small.png" alt="Reproducible reports with R Markdown logo" class="visible-xs visible-sm">
+                    <span class="sr-only">Reproducible reports with R Markdown - go to homepage</span>
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                      <span class="sr-only">Toggle Navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                </div>
+            </div>
+            
+
+            <div class="navbar-collapse collapse" id="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                  
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/site/">Home</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/site/material/">Content</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/site/more-info/">More Info</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/site/surveys/">Surveys</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="https://github.com/au-cru"><i class='fab fa-github'></i></a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="https://twitter.com/aucru"><i class='fab fa-twitter'></i></a>
+                    
+                  </li>
+                  
+                </ul>
+            </div>
+            
+
+            <div class="collapse clearfix" id="search">
+
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+
+                </span>
+                    </div>
+                </form>
+
+            </div>
+            
+
+        </div>
+    </div>
+    
+
+</div>
+
+
+
+
+        </header>
+
+        <div id="heading-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Reproducible reports with R Markdown</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div id="content">
+            <div class="container">
+
+                <div class="row">
+
+                    
+
+                    <div class="col-md-9" id="blog-post">
+
+                        <p class="text-muted text-uppercase mb-small text-right">
+                           By <strong>Luke W. Johnston, Maria Izabel Cavassim Alves (contributed), Sara Tomiolo</strong>  |
+                          December 13, 2019</p>
+
+                        <div id="post-content">
+                          
+
+
+<pre class="r"><code>install.packages(&quot;rmarkdown&quot;)</code></pre>
+<div id="objectives" class="section level3">
+<h3>Objectives</h3>
+<ol style="list-style-type: decimal">
+<li>To become aware of the importance of reproducibility of data analyses.</li>
+<li>To learn how to generate high quality reports that can be shared with a broader audience.</li>
+<li>To create reproducible documents interwoven with R code that can be run on updated or different data sets.</li>
+<li>To use Rstudio not as a data science tool but also as a text editor and compiler!</li>
+<li>To know where to go for continued learning.</li>
+</ol>
+<p><strong>At the end of this session you will be able</strong>:</p>
+<ul>
+<li>Create a new RMarkdown document.</li>
+<li>Write text, headers, citations, and other report writing tasks in Markdown.</li>
+<li>Insert R code chunks that will create figures, tables, or numbers.</li>
+<li>Generate an analytically reproducible Word or HTML document.</li>
+</ul>
+</div>
+<div id="resources-for-learning-and-help" class="section level2">
+<h2>Resources for learning and help</h2>
+<p><a href="/more-info/#resources">Here for resources</a></p>
+</div>
+<div id="why-try-to-be-reproducible" class="section level2">
+<h2>Why try to be reproducible?</h2>
+<p>First of a couple of definitions to avoid confusion:</p>
+<p><strong>Replicability</strong>: Repeating a study by performing independently an identical study.</p>
+<p><strong>Reproducibility</strong>: Generating the same exact results when using the same data and code. This means that if you gave someone your data,
+your code, and your paper, they should be able to generate the exact same numbers
+you reported.</p>
+<p>Research shows
+that often this is the case… even when the researchers try to
+reproduce their own results! A recent <a href="https://www.nature.com/news/polopoly_fs/1.19970!/menu/main/topColumns/topLeftColumn/pdf/533452a.pdf">survey</a> indicated that 70% of researchers failed to reproduce another scientist’s results and more than 50% of researchers were not able to reproduce their own results.</p>
+<p>Being reproducible and writing a reproducible document/manuscript does several
+things for you:</p>
+<ol style="list-style-type: decimal">
+<li>Makes your science better.</li>
+<li><a href="https://twitter.com/kcranstn/status/370914072511791104">Makes you more efficient and productive</a>, since less time is spent between
+coding and putting your results in the document, or in searching where you put your code, your graphs and your manuscript.</li>
+<li>Makes you more confident in your results, since what you report is what you
+actually got from the analysis.</li>
+<li>Its actually a lot of fun! ;)</li>
+</ol>
+</div>
+<div id="what-is-r-markdown" class="section level2">
+<h2>What is R Markdown?</h2>
+<p>A <a href="https://en.wikipedia.org/wiki/Markup_language">markup syntax</a> that allows you to write a plain text (e.g. R code and scripts) document that can convert to a range of document formats, such as Word, PDF, html.</p>
+<p>In R Markdown it is possible to write text and integrate it with code. In R scripts you would need to use <code>#</code>so that your comments are not read as code.</p>
+<p>In R and R Markdown, the software that allows the conversion from R code into different document formats is called <a href="http://pandoc.org/index.html">pandoc</a>.</p>
+<p>Let’s get to learning how to use R Markdown!</p>
+</div>
+<div id="yaml-header" class="section level2">
+<h2>YAML Header</h2>
+<p>Every R Markdown documents starts with a section at the top called YAML Header.
+In this section you want to indicate the desired output of your document.
+Today we will output our R Markdown documents in html format, but you can also choose PDF, and Word documents.</p>
+<p>If you want to produce a PDF document, you will need to install <a href="https://yihui.org/tinytex/">tinytex</a>.</p>
+<p>If you want to convert to Word and set up some features of your document (suck as line spacing and styles) you should create a reference style document. For this you can follow this very detailed <a href="https://rmarkdown.rstudio.com/articles_docx.html">tutorial</a> or watch this <a href="https://vimeo.com/110804387">video</a></p>
+</div>
+<div id="the-best-part-inserting-r-code" class="section level2">
+<h2>The best part! Inserting R code</h2>
+<p>One of the most powerful and useful features of Rmarkdown, is its ability to
+combine text and code in the same document! You can insert plots by including a
+code chunk like below. The options added to the code chunk tell it to add a
+caption, and set the height and width of the figure.</p>
+<p>We do this by inserting a <code>code chunk</code>. A code chunk can be inserted pressing
+<code>Ctrl + Alt + I</code> or <code>Cmd + Option + I</code> for Mac users.</p>
+<pre class="markdown"><code>&#96;&#96;&#96;{r plot_sepal, fig.cap="Figure title here", fig.height=8, fig.width=8, echo=FALSE}
+plot(Sepal.Length ~ Sepal.Width, data = iris)
+&#96;&#96;&#96;
+</code></pre>
+<p>You can also hide the code chunk but keep the output by using the <code>echo=FALSE</code> option:</p>
+<pre class="markdown"><code>&#96;&#96;&#96;{r, echo=FALSE}
+cor(iris$Sepal.Length, iris$Sepal.Width)
+&#96;&#96;&#96;
+</code></pre>
+<p>In this case we want to keep the code chunk visible and we also want to add some comments
+regarding our graph.</p>
+<p>You can also create tables by using the <code>kable()</code> function in the knitr package.</p>
+<pre class="markdown"><code>&#96;&#96;&#96;{r}
+knitr::kable(head(iris), caption = "Table caption here")
+&#96;&#96;&#96;
+</code></pre>
+<p>The <code>knitr::</code> part of the code tells R where the <code>kable</code> function comes from. So
+the <code>::</code> is telling R “hey, look in the knitr package for the kable function”.</p>
+<p>For small and not too complex tables, you can also create it outside of a R
+chunk using the Markdown syntax:</p>
+<pre><code>|       &amp;nbsp;       | diverged | polymorphic |
+|:------------------:|:--------:|:-----------:|
+|   **synonymous**   |   1300   |    2109     |
+| **non-synonymous** |   700    |     891     |</code></pre>
+<p>gives…</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">diverged</th>
+<th align="center">polymorphic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>synonymous</strong></td>
+<td align="center">1300</td>
+<td align="center">2109</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>non-synonymous</strong></td>
+<td align="center">700</td>
+<td align="center">891</td>
+</tr>
+</tbody>
+</table>
+<div id="exercise-create-a-plot-and-add-a-table-to-your-r-markdown-document" class="section level3">
+<h3>Exercise: Create a plot and add a table to your R Markdown document</h3>
+<p>Time: 10 min</p>
+<p>Open RStudio and create an <code>R Markdown</code> document:</p>
+<p><strong>File -&gt; New File -&gt; R Markdown</strong>
+Save the file and call the file <code>exercise.Rmd</code></p>
+<p>Create a chunck of code and create a plot using the database <code>CO2</code>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Use <code>names(CO2)</code> to find the names of columns from the CO2 dataset. Choose
+two columns. Create a code chunk with a caption <code>fig.cap</code> option and the
+<code>fig.width</code> of 10 and a <code>fig.height</code> of 6. Include in the code chunk the
+function, replacing the <code>__</code> with the two columns you chose:</p>
+<pre class="r"><code>ggplot(CO2, aes(x =___, y = ___)) +
+  geom____()</code></pre></li>
+<li><p>Create a table of the <code>head()</code> of the <code>CO2</code> dataset using the R function
+<code>knitr::kable()</code>.</p></li>
+<li><p>Add a few lines of text underneath your graph</p></li>
+</ol>
+<p>Compile your document by pressing the icon <code>Knit to HTML</code> or by typing <code>Ctrl-Shift-K</code>.</p>
+</div>
+</div>
+<div id="markdown-syntax" class="section level2">
+<h2>Markdown syntax</h2>
+<p>Similarly to a text editor, R Markdown allows you to modify and customize the syntax.</p>
+<div id="headers" class="section level3">
+<h3>Headers</h3>
+<p>Such as for a section, subsection, subsubsection, etc.</p>
+<blockquote>
+<p><code># Header 1</code></p>
+<p>gives…</p>
+<h1 id="header-1">Header 1</h1>
+</blockquote>
+<blockquote>
+<p><code>## Header 2</code></p>
+<p>gives…</p>
+<h2 id="header-2">Header 2</h2>
+</blockquote>
+<blockquote>
+<p><code>### Header 3</code></p>
+<p>gives…</p>
+<h3 id="header-3">Header 3</h3>
+</blockquote>
+</div>
+<div id="text-formatting" class="section level3">
+<h3>Text formatting</h3>
+<ul>
+<li><code>**bold**</code> gives <strong>bold</strong>.</li>
+<li><code>*italics*</code> gives <em>italics</em>.</li>
+<li><code>super^script^</code> gives super<sup>script</sup>.</li>
+<li><code>sub~script~</code> gives sub<sub>script</sub>.</li>
+</ul>
+</div>
+<div id="lists" class="section level3">
+<h3>Lists</h3>
+<p>Unnumbered list:</p>
+<blockquote>
+<pre><code>- item 1
+- item 2
+- item 3</code></pre>
+<p>gives…</p>
+<ul>
+<li>item 1</li>
+<li>item 2</li>
+<li>item 3</li>
+</ul>
+</blockquote>
+<p>Numbered list:</p>
+<blockquote>
+<pre><code>1. item 1
+2. item 2
+3. item 3</code></pre>
+<p>gives…</p>
+<ol style="list-style-type: decimal">
+<li>item 1</li>
+<li>item 2</li>
+<li>item 3</li>
+</ol>
+</blockquote>
+</div>
+<div id="block-quotes" class="section level3">
+<h3>Block quotes</h3>
+<p>One can also create quotes:</p>
+<blockquote>
+<pre><code>&gt; Block quote </code></pre>
+<p>gives…</p>
+<blockquote>
+<p>Block quote</p>
+</blockquote>
+</blockquote>
+</div>
+<div id="exercise-construct-an-outline-for-a-hypthetical-paper" class="section level3">
+<h3>Exercise: Construct an outline for a (hypthetical) paper</h3>
+<p>Time: 10 min</p>
+<p>In your R Markdown document, add the sections of your future manuscript.
+Include the following “Header 1” <code>#</code> sections:</p>
+<ul>
+<li>Abstract</li>
+<li>Introduction</li>
+<li>Material and Methods</li>
+<li>Results</li>
+<li>Discussion</li>
+<li><p>Conclusion</p></li>
+<li>Write some random words below the <strong>Abstract section</strong>, while using bold and
+italics.</li>
+<li>Include an unnumbered list below <strong>Introduction</strong> listing two or three fake
+objectives.</li>
+<li><p>Include a “Header 2” (<code>##</code>) called “Statistical analysis” below “Material and
+Methods”.</p></li>
+</ul>
+<p>Compile it by pressing the icon <code>Knit to HTML</code> or by typing <code>Ctrl-Shift-K</code>.</p>
+</div>
+<div id="adding-footnotes-pictures-and-links-to-your-document" class="section level3">
+<h3>Adding footnotes, pictures, and links to your document</h3>
+<p>Footnotes can be done using the following command:</p>
+<blockquote>
+<pre><code>Footnote[^1]
+
+[^1]: Footnote content</code></pre>
+<p>gives…</p>
+<p>Footnote<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+</blockquote>
+<p>A .png .jpeg or .pdf image can be attached in the following way:</p>
+<blockquote>
+<pre><code>![image caption](img/logo-original.png)</code></pre>
+<p>gives…</p>
+<div class="figure">
+<img src="img/logo-original.png" alt="image caption" />
+<p class="caption">image caption</p>
+</div>
+</blockquote>
+<p>And a link can be linked in the following format:</p>
+<blockquote>
+<pre><code>[Link](https://google.com)</code></pre>
+<p>gives…</p>
+<p><a href="https://google.com">Link</a></p>
+</blockquote>
+</div>
+<div id="exercise-add-more-to-your-markdown-document" class="section level3">
+<h3>Exercise: Add more to your Markdown document!</h3>
+<p>Time: 8 min</p>
+<p>Now you are asked to include in your “skecthed article” what we just have learned.</p>
+<ol style="list-style-type: decimal">
+<li>Include a random picture with caption (of your research or of any .png you
+find in your PC).</li>
+<li>Include a footnote.</li>
+<li>Include the link of the AUOC webpage (<code>https://au-oc.github.io</code>) in your document.</li>
+</ol>
+<!-- **Starting from here I feel that we are adding too much stuff.... i.e. inline code, citing literature and adding themes** -->
+<!-- ### Inline R code -->
+<!-- You can also include R code within the text. You can use this to directly insert -->
+<!-- numbers into the text of the document. By using something like: -->
+<!-- > The mean of the sepal length is <code>&#96;r round(mean(iris$Sepal.Length), 2)&#96;</code>. -->
+<!-- > -->
+<!-- > Gives... -->
+<!-- > -->
+<!-- > The mean of the sepal length is 5.84. -->
+<!-- ## Other features -->
+<!-- ### Citing literature with Rmarkdown -->
+<!-- If you want to insert a citation use `[@Hoejsgaard2006a]` to get it to look -->
+<!-- like: [@Hoejsgaard2006a]... the reference is then inserted onto the bottom of -->
+<!-- the document. You need to add a line to the YAML header like this: -->
+<!-- ``` -->
+<!-- --- -->
+<!-- title: "My report" -->
+<!-- author: "Me!" -->
+<!-- bibliography: my_references.bib -->
+<!-- --- -->
+<!-- ``` -->
+<!-- ### Making your report prettier -->
+<!-- This really only applies to HTML and PDF[^tinytex] documents. If you want to change the  -->
+<!-- theme, add an option to the YAML header so it looks like: -->
+<!-- ``` -->
+<!-- --- -->
+<!-- title: "My report" -->
+<!-- output: -->
+<!--     html_document: -->
+<!--         theme: sandstone -->
+<!-- --- -->
+<!-- ``` -->
+<p>Check out the R Markdown
+<a href="https://bookdown.org/yihui/rmarkdown/html-document.html#appearance-and-style">documentation</a>
+for more types of themes you can use for HTML documents.</p>
+</div>
+</div>
+<div id="ending-remarks" class="section level2">
+<h2>Ending remarks</h2>
+<p>We hope that we’ve shown the power that comes with using R Markdown and that
+we’ve convinced you enough to try using R Markdown for writing your reports!
+Believe us, it can save soooo much time in the end after you’ve learned how to
+incorporate text with R code when writing any type of document that relies on
+results from data analysis or presentation. R Markdown is a powerful tool for
+reproducibility and for creating beautiful reports! There are many other amazing
+features of R Markdown that you can learn about from the resources above. Try it
+out and learn more about it!</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Footnote content<a href="#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+
+                        </div>
+                        
+                        
+
+                    </div>
+                    
+
+                    
+
+                    
+
+                    <div class="col-md-3">
+
+                        
+
+                        
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">Search</h3>
+    </div>
+
+    <div class="panel-body">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" role="search">
+            <div class="input-group">
+                <input type="search" name="q" class="form-control" placeholder="Search">
+                <input type="hidden" name="sitesearch" value="https://au-cru.github.io/site/">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">Categories</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+            
+            <li><a href="https://au-cru.github.io/site/categories/advanced">advanced (1)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/beginner">beginner (6)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/beginner-intermediate">beginner-intermediate (1)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/code-along">code-along (8)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/intermediate">intermediate (1)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/lectures">lectures (1)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/r">r (8)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/rhus">rhus (1)</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+    <div class="panel-heading">
+      <h3 class="panel-title">Tags</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="tag-cloud">
+            
+            <li><a href="https://au-cru.github.io/site/tags/asking-for-help"><i class="fa fa-tags"></i> asking-for-help</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/collaboration"><i class="fa fa-tags"></i> collaboration</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/data-management"><i class="fa fa-tags"></i> data-management</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/data-visualization"><i class="fa fa-tags"></i> data-visualization</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/data-wrangling"><i class="fa fa-tags"></i> data-wrangling</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/devtools"><i class="fa fa-tags"></i> devtools</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/dont-repeat-yourself"><i class="fa fa-tags"></i> dont-repeat-yourself</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/dplyr"><i class="fa fa-tags"></i> dplyr</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/dynamic-document-generation"><i class="fa fa-tags"></i> dynamic-document-generation</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/efficiency"><i class="fa fa-tags"></i> efficiency</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/error-messages"><i class="fa fa-tags"></i> error-messages</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/functions"><i class="fa fa-tags"></i> functions</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/ggplot2"><i class="fa fa-tags"></i> ggplot2</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/git"><i class="fa fa-tags"></i> git</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/github"><i class="fa fa-tags"></i> github</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/markdown"><i class="fa fa-tags"></i> markdown</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/package-development"><i class="fa fa-tags"></i> package-development</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/prodigenr"><i class="fa fa-tags"></i> prodigenr</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/productivity"><i class="fa fa-tags"></i> productivity</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/project-management"><i class="fa fa-tags"></i> project-management</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/r"><i class="fa fa-tags"></i> r</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/r-documentation"><i class="fa fa-tags"></i> r-documentation</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/r-markdown"><i class="fa fa-tags"></i> r-markdown</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/r-packages"><i class="fa fa-tags"></i> r-packages</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/r-projects"><i class="fa fa-tags"></i> r-projects</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/report-writing"><i class="fa fa-tags"></i> report-writing</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/reprex"><i class="fa fa-tags"></i> reprex</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/reproducibility"><i class="fa fa-tags"></i> reproducibility</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/reproducible-data-analysis"><i class="fa fa-tags"></i> reproducible-data-analysis</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/reproducible-documents"><i class="fa fa-tags"></i> reproducible-documents</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/reproducible-examples"><i class="fa fa-tags"></i> reproducible-examples</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/rmarkdown"><i class="fa fa-tags"></i> rmarkdown</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/stackoverflow"><i class="fa fa-tags"></i> stackoverflow</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/style-guide"><i class="fa fa-tags"></i> style-guide</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/styler"><i class="fa fa-tags"></i> styler</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/tidy-code"><i class="fa fa-tags"></i> tidy-code</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/usethis"><i class="fa fa-tags"></i> usethis</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/version-control"><i class="fa fa-tags"></i> version-control</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/workflow-management"><i class="fa fa-tags"></i> workflow-management</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+                        
+
+                    </div>
+                    
+
+                    
+
+                </div>
+                
+
+            </div>
+            
+        </div>
+        
+
+        <footer id="footer">
+    <div class="container">
+
+        
+        <div class="col-md-4 col-sm-6">
+            <h4>About us</h4>
+
+            <!-- raw HTML omitted -->
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+        <div class="col-md-4 col-sm-6">
+
+            
+
+        </div>
+        
+
+        
+        <div class="col-md-4 col-sm-6">
+
+          <h4>Contact</h4>
+
+            
+
+            <a href="/contact" class="btn btn-small btn-template-main">Go to contact page</a>
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+    </div>
+    
+</footer>
+
+
+
+
+
+
+
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-12">
+            
+            <p class="pull-left">Copyright (c) 2019, AU CRU; all rights reserved. See <a href='license/'>license</a>.</p>
+            
+            <p class="pull-right">
+              Template by <a href="http://bootstrapious.com/free-templates">Bootstrapious</a>.
+              
+
+              Ported to Hugo by <a href="https://github.com/devcows/hugo-universal-theme">DevCows</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    </div>
+    
+
+    
+<script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0/jquery.counterup.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js"></script>
+
+<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCFhtWLJcE30xOAjcbSFi-0fnoVmQZPb1Y&v=3.exp"></script>
+
+<script src="https://au-cru.github.io/site/js/hpneo.gmaps.js"></script>
+<script src="https://au-cru.github.io/site/js/gmaps.init.js"></script>
+<script src="https://au-cru.github.io/site/js/front.js"></script>
+
+
+<script src="https://au-cru.github.io/site/js/owl.carousel.min.js"></script>
+
+
+  </body>
+</html>

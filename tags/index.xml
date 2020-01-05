@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on AU CRU</title>
+    <link>https://au-cru.github.io/site/tags/</link>
+    <description>Recent content in Tags on AU CRU</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://au-cru.github.io/site/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>devtools</title>
+      <link>https://au-cru.github.io/site/tags/devtools/</link>
+      <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/devtools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>package development</title>
+      <link>https://au-cru.github.io/site/tags/package-development/</link>
+      <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/package-development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R packages</title>
+      <link>https://au-cru.github.io/site/tags/r-packages/</link>
+      <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/r-packages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reproducible data analysis</title>
+      <link>https://au-cru.github.io/site/tags/reproducible-data-analysis/</link>
+      <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/reproducible-data-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>usethis</title>
+      <link>https://au-cru.github.io/site/tags/usethis/</link>
+      <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/usethis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>workflow management</title>
+      <link>https://au-cru.github.io/site/tags/workflow-management/</link>
+      <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/workflow-management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>prodigenr</title>
+      <link>https://au-cru.github.io/site/tags/prodigenr/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/prodigenr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>project management</title>
+      <link>https://au-cru.github.io/site/tags/project-management/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/project-management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Projects</title>
+      <link>https://au-cru.github.io/site/tags/r-projects/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/r-projects/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reproducibility</title>
+      <link>https://au-cru.github.io/site/tags/reproducibility/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/reproducibility/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>style guide</title>
+      <link>https://au-cru.github.io/site/tags/style-guide/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/style-guide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>styler</title>
+      <link>https://au-cru.github.io/site/tags/styler/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/styler/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>collaboration</title>
+      <link>https://au-cru.github.io/site/tags/collaboration/</link>
+      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/collaboration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>https://au-cru.github.io/site/tags/git/</link>
+      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GitHub</title>
+      <link>https://au-cru.github.io/site/tags/github/</link>
+      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>version control</title>
+      <link>https://au-cru.github.io/site/tags/version-control/</link>
+      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/version-control/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>asking for help</title>
+      <link>https://au-cru.github.io/site/tags/asking-for-help/</link>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/asking-for-help/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>error messages</title>
+      <link>https://au-cru.github.io/site/tags/error-messages/</link>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/error-messages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://au-cru.github.io/site/tags/r/</link>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Documentation</title>
+      <link>https://au-cru.github.io/site/tags/r-documentation/</link>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/r-documentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reprex</title>
+      <link>https://au-cru.github.io/site/tags/reprex/</link>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/reprex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reproducible examples</title>
+      <link>https://au-cru.github.io/site/tags/reproducible-examples/</link>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/reproducible-examples/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stackoverflow</title>
+      <link>https://au-cru.github.io/site/tags/stackoverflow/</link>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/stackoverflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dynamic document generation</title>
+      <link>https://au-cru.github.io/site/tags/dynamic-document-generation/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/dynamic-document-generation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>markdown</title>
+      <link>https://au-cru.github.io/site/tags/markdown/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Markdown</title>
+      <link>https://au-cru.github.io/site/tags/r-markdown/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/r-markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>report writing</title>
+      <link>https://au-cru.github.io/site/tags/report-writing/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/report-writing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reproducible documents</title>
+      <link>https://au-cru.github.io/site/tags/reproducible-documents/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/reproducible-documents/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rmarkdown</title>
+      <link>https://au-cru.github.io/site/tags/rmarkdown/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/rmarkdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>don&#39;t repeat yourself</title>
+      <link>https://au-cru.github.io/site/tags/dont-repeat-yourself/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/dont-repeat-yourself/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>efficiency</title>
+      <link>https://au-cru.github.io/site/tags/efficiency/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/efficiency/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>functions</title>
+      <link>https://au-cru.github.io/site/tags/functions/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/functions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>productivity</title>
+      <link>https://au-cru.github.io/site/tags/productivity/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/productivity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tidy code</title>
+      <link>https://au-cru.github.io/site/tags/tidy-code/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/tidy-code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data management</title>
+      <link>https://au-cru.github.io/site/tags/data-management/</link>
+      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/data-management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data wrangling</title>
+      <link>https://au-cru.github.io/site/tags/data-wrangling/</link>
+      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/data-wrangling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dplyr</title>
+      <link>https://au-cru.github.io/site/tags/dplyr/</link>
+      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/dplyr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data visualization</title>
+      <link>https://au-cru.github.io/site/tags/data-visualization/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/data-visualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ggplot2</title>
+      <link>https://au-cru.github.io/site/tags/ggplot2/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/tags/ggplot2/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

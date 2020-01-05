@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Creating your own functions in R</title>
+  <meta name="author" content="" />
+
+  
+  <meta name="keywords" content="au-cru, programming, rstats, r">
+  
+
+  
+  <meta name="description" content="Do you write code multiple times that only slightly changes each time you write (or copy and paste) it? Learn how to not repeat yourself by writing your own functions!
+">
+  
+
+  <meta name="generator" content="Hugo 0.61.0" />
+
+  <link rel="stylesheet" href="https://au-cru.github.io/site/css/github.css" rel="stylesheet" id="theme-stylesheet">
+  <script src="https://au-cru.github.io/site/js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.10.2/css/all.css">
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  
+  <link href="/site/css/animate.css" rel="stylesheet">
+
+  
+  
+    <link href="/site/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+  
+
+
+  
+  <link href="/site/css/custom.css" rel="stylesheet">
+
+  
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+  <link rel="icon" href="/site/img/favicon.ico?v=2" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/site/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/site/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/site/img/favicon-16x16.png">
+  <link rel="manifest" href="/site/site.webmanifest">
+  <link rel="mask-icon" href="/site/img/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#2d89ef">
+  <meta name="theme-color" content="#ffffff">
+
+  
+
+  <link href="/site/css/owl.carousel.css" rel="stylesheet">
+  <link href="/site/css/owl.theme.css" rel="stylesheet">
+
+  <link rel="alternate" href="https://au-cru.github.io/index.xml" type="application/rss+xml" title="AU CRU">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@">
+  <meta name="twitter:title" content="Creating your own functions in R">
+  <meta name="twitter:image" content="https://au-cru.github.io/site/">
+  <meta name="twitter:description" content="Do you write code multiple times that only slightly changes each time you write (or copy and paste) it? Learn how to not repeat yourself by writing your own functions!
+">
+
+  
+  <meta property="og:title" content="Creating your own functions in R" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://au-cru.github.io/site/material/2019-11-29-functions//" />
+  <meta property="og:image" content="img/logo.png" />
+
+</head>
+
+
+  <body>
+
+    <div id="all">
+
+        <header>
+
+          <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand home" href="https://au-cru.github.io/site/">
+                    <img src="https://au-cru.github.io/site/img/logo.png" alt="Creating your own functions in R logo" class="hidden-xs hidden-sm">
+                    <img src="https://au-cru.github.io/site/img/logo-small.png" alt="Creating your own functions in R logo" class="visible-xs visible-sm">
+                    <span class="sr-only">Creating your own functions in R - go to homepage</span>
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                      <span class="sr-only">Toggle Navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                </div>
+            </div>
+            
+
+            <div class="navbar-collapse collapse" id="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                  
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/site/">Home</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/site/material/">Content</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/site/more-info/">More Info</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/site/surveys/">Surveys</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="https://github.com/au-cru"><i class='fab fa-github'></i></a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="https://twitter.com/aucru"><i class='fab fa-twitter'></i></a>
+                    
+                  </li>
+                  
+                </ul>
+            </div>
+            
+
+            <div class="collapse clearfix" id="search">
+
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+
+                </span>
+                    </div>
+                </form>
+
+            </div>
+            
+
+        </div>
+    </div>
+    
+
+</div>
+
+
+
+
+        </header>
+
+        <div id="heading-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Creating your own functions in R</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div id="content">
+            <div class="container">
+
+                <div class="row">
+
+                    
+
+                    <div class="col-md-9" id="blog-post">
+
+                        <p class="text-muted text-uppercase mb-small text-right">
+                           By <strong>Luke W. Johnston</strong>  |
+                          November 29, 2019</p>
+
+                        <div id="post-content">
+                          
+
+
+<div id="resources-for-learning-and-help" class="section level2">
+<h2>Resources for learning and help</h2>
+<p><a href="/more-info/#resources">Here for resources</a></p>
+</div>
+<div id="session-content" class="section level2">
+<h2>Session content</h2>
+<p>Before we begin, we’ll set up an R project, create a folder named <code>R/</code>, and then
+create a new file in the <code>R/</code> folder of the project.</p>
+<div id="basic-structure-of-a-function" class="section level3">
+<h3>Basic structure of a function</h3>
+<p>In R, all actions are functions. For instance, the <code>+</code> is a function, <code>mean()</code>
+is a function, <code>[]</code> is a function, and so on. So creating your functions can
+make doing your work easier and more efficient. Making functions always has a
+basic structure of:</p>
+<ol style="list-style-type: decimal">
+<li>Giving a name to the function (e.g. <code>mean</code>).</li>
+<li>Starting the function call using <code>function()</code>, assigning it to the name with
+<code>&lt;-</code>. This tells R that the name is a function object.</li>
+<li>Optionally providing arguments to give to the function call, for instance
+<code>function(arg1, arg2, arg3)</code>.</li>
+<li>Filling out the body of the function, with the arguments (if any) contained
+inside, that does some action.</li>
+<li>Optionally, but strongly encouraged, use <code>return</code> to indicate what you want
+the function to output.</li>
+</ol>
+<p>While there is no minimum or maximum number of arguments you can provide for a
+function (e.g. you could have zero or dozens of arguments), its good practice
+for yourself and for others if you have as few arguments as possible to get
+the job done.</p>
+<p>So, the structure is:</p>
+<pre class="r"><code>name &lt;- function(arg1, arg2) {
+  # body of function
+  ... code ....
+  return(output)
+}</code></pre>
+<p>… and an example:</p>
+<pre class="r"><code>add_nums &lt;- function(num1, num2) {
+  added &lt;- num1 + num2
+  return(added)
+}</code></pre>
+<p>You can use the new function by running the above code and writing out your new
+function, with arguments to give it.</p>
+<pre class="r"><code>add_nums(1, 2)
+#&gt; [1] 3</code></pre>
+<p>The function name is fairly good… <code>add_nums</code> can be read as “add numbers”.
+It’s also good practice to add some formal documentation to the function. Use
+the “Insert Roxygen Skeleton” in the “Code” menu list of RStudio (or by typing
+<code>Ctrl-Shift-Alt-R</code>) and you can add template documentation right above the
+function. It looks like:</p>
+<pre class="r"><code>#&#39; Title
+#&#39;
+#&#39; @param num1 
+#&#39; @param num2 
+#&#39;
+#&#39; @return
+#&#39; @export
+#&#39;
+#&#39; @examples
+add_nums &lt;- function(num1, num2) {
+  added &lt;- num1 + num2
+  return(added)
+}</code></pre>
+<p>In the <code>Title</code> area, this is where you type out a brief sentence or several words
+that describe the function. Creating a new paragraph below this line allows you
+to add a more detailed description. The other items are:</p>
+<ul>
+<li><code>@param num</code> lines are to describe what each argument is for.</li>
+<li><code>@return</code> describes what output the function provides. Is it a data.frame? A plot?
+What else does the output give?</li>
+<li><code>@export</code> tells R that this function should be accessible to the user of your
+package. Delete it for non-package functions.</li>
+<li><code>@examples</code> lines below this are used to show examples of how to use the function.
+Very useful when making packages, but not really in this case.</li>
+</ul>
+<pre class="r"><code>#&#39; Add two numbers together.
+#&#39;
+#&#39; This is just an example function to show how to create one.
+#&#39;
+#&#39; @param num1 A number here.
+#&#39; @param num2 A number here.
+#&#39;
+#&#39; @return Returns the sum of the two numbers.
+#&#39;
+add_nums &lt;- function(num1, num2) {
+  added &lt;- num1 + num2
+  return(added)
+}</code></pre>
+<p>This is the very basics of making a function. But let’s get to something more
+useful! Let’s do something you might actually do in a data analysis project. Let’s
+suppose you want to create a scatter plot of two variables in a dataset, that you may
+want to include as a figure in a report or maybe to use while you explore the
+data.</p>
+</div>
+<div id="typical-workflow-for-creating-functions" class="section level3">
+<h3>Typical workflow for creating functions</h3>
+<ol style="list-style-type: decimal">
+<li>Write the code as you normally would and make sure it does what you want.</li>
+<li>Set up the function structure and put the code into the function. Make sure
+the function name explains what the function does.</li>
+<li>Create the arguments you want and replace the variables in the code with the
+arguments. Make sure the argument names explain what they are used for.</li>
+<li>Append <code>packagename::</code> to any function inside your function that comes from a
+package (e.g. if the function comes from ggplot2, it will look like <code>ggplot2::geom_point()</code>).
+This ensures that R doesn’t mistake the function for one in another package.</li>
+<li>Add a return command to the end.</li>
+<li>Run the function and test it out to see if it works. If not, try to debug the
+code by adding <code>print()</code> commands inside the function to see what is happening.</li>
+<li>Once it all works as you want it, try the function using different arguments.
+If it doesn’t work, try 5 again.</li>
+<li>Finally, add the documentation to the function so you remember what it was for.</li>
+<li>To make your function more “secure”, you could be “defensive” and add checks
+that your arguments are used appropriately.</li>
+</ol>
+</div>
+<div id="more-practical-example" class="section level3">
+<h3>More practical example</h3>
+<p>Alright, let’s try with making a graph. We’ll use the NHANES dataset from the NHANES
+package, plus we’re going to use ggplot2, so let’s load them up!</p>
+<pre class="r"><code>library(NHANES)
+library(ggplot2)</code></pre>
+<p>Then we create a basic scatter plot:</p>
+<pre class="r"><code>ggplot(NHANES, aes(x = Height, y = Weight)) +
+  geom_point()</code></pre>
+<p><img src="/site/material/2019-11-29-functions_files/figure-html/scatter-plot-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>If we wanted to make another scatter plot of some of variables, we would normally
+have to type out all that code again. But instead, we could make a function of
+it! So let’s get it into function form:</p>
+<pre class="r"><code>scatter_plot &lt;- function() {
+  scatter &lt;- ggplot(NHANES, aes(x = Height, y = Weight) +
+    geom_point()
+  return(scatter)
+}</code></pre>
+<p>Then let’s add in the arguments and try it out!</p>
+<pre class="r"><code>scatter_plot &lt;- function(.dataset, .xvar, .yvar) {
+  scatter &lt;- ggplot(.dataset, aes(x = .xvar, y = .yvar)) +
+    geom_point()
+  return(scatter)
+}</code></pre>
+<p>I created arguments that begin with <code>.</code>. This is mostly personal preference, but
+I like it because it makes it easier to see in the code what is an argument for
+this function. But you could just as easily not use the <code>.</code>. Ok, let’s try out the
+function.</p>
+<pre class="r"><code>scatter_plot(NHANES, Height, Weight)
+#&gt; Error in FUN(X[[i]], ...): object &#39;Height&#39; not found</code></pre>
+<p><img src="/site/material/2019-11-29-functions_files/figure-html/try-out-function-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Oops! What happened? We had an error… We’ve actually encountered a problem from
+something called “<a href="http://adv-r.had.co.nz/Computing-on-the-language.html">non-standard evaluation</a>” (or NSE). NSE is very commonly used
+in most tidyverse packages like ggplot2, as well as throughout base R. When
+creating functions, NSE can be difficult to work around, but for everyday use
+it is incredibly useful!</p>
+<p>For instance, NSE is what allows you to use formulas
+(e.g. <code>y ~ x + x2</code> in modelling) or allows you to type out <code>library(ggplot2)</code>.
+In other programming languages, it would be <code>library(&quot;ggplot2&quot;)</code> and the use of
+formulas wouldn’t work. So it gives a lot of flexibility when doing data
+analysis, but can give some headaches when programming in R.</p>
+<p>The reason it doesn’t work here is R thinks that it needs to look for the <code>Height</code>
+variable as an object in R… but what we <em>mean</em> is to use the <code>Height</code> as a
+variable <em>in the dataset</em>. This applies for <code>Weight</code> as well. In normal ggplot2,
+it uses NSE to see <code>Height</code> and interpret it was us meaning <em>Height in the dataset</em>.</p>
+<p>To work around this, thankfully the developers of tidyverse created a way to
+easily work with NSE in functions, with the “curly-curly” (<code>{{ }}</code>) function. We
+fix the problem by wrapping the arguments in the function with curly-curly:</p>
+<pre class="r"><code>scatter_plot &lt;- function(.dataset, .xvar, .yvar) {
+  scatter &lt;- ggplot(.dataset, aes(x = {{.xvar}}, y = {{.yvar}})) +
+    geom_point()
+  return(scatter)
+}
+scatter_plot(NHANES, Height, Weight)</code></pre>
+<p><img src="/site/material/2019-11-29-functions_files/figure-html/plot-function-curly-curly-1.png" width="480" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>
+# Try with different variables
+scatter_plot(NHANES, Age, Height)</code></pre>
+<p><img src="/site/material/2019-11-29-functions_files/figure-html/plot-function-curly-curly-2.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Nice! Ok, next step is to be explicit about using ggplot2 for functions. This is
+a good practice to use after you’ve created your function. Explicitly
+indicating which functions come from which package is important, since you
+shouldn’t use <code>library()</code> calls in your function. We be explicit by using the
+<code>packagename::function_name()</code> format (you don’t need to do this for base R
+functions, only those from packages).</p>
+<pre class="r"><code>scatter_plot &lt;- function(.dataset, .xvar, .yvar) {
+  scatter &lt;- ggplot2::ggplot(.dataset, ggplot2::aes(x = {{.xvar}}, y = {{.yvar}})) +
+    ggplot2::geom_point()
+  return(scatter)
+}
+# Check that it still works.
+scatter_plot(NHANES, Height, Weight)</code></pre>
+<p><img src="/site/material/2019-11-29-functions_files/figure-html/plot-function-ggplot2-explicit-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Then, let’s add the roxygen documentation (<code>Ctrl-Alt-Shift-R</code>) and fill it in:</p>
+<pre class="r"><code>#&#39; Create a scatter plot of two continuous variables.
+#&#39;
+#&#39; @param .dataset Data to plot.
+#&#39; @param .xvar Variable for the x axis.
+#&#39; @param .yvar Variable for the y axis.
+#&#39;
+#&#39; @return Creates a ggplot.
+#&#39;
+scatter_plot &lt;- function(.dataset, .xvar, .yvar) {
+  scatter &lt;- ggplot2::ggplot(.dataset, ggplot2::aes(x = {{.xvar}}, y = {{.yvar}})) +
+    ggplot2::geom_point()
+  return(scatter)
+}</code></pre>
+<p>If you want to make sure that who ever uses your function will not use a wrong
+argument, you can use “defensive programming” via the <code>stopifnot()</code> function.
+For instance, for this function you can say, always include the x and y variables
+(don’t have them missing):</p>
+<pre class="r"><code>#&#39; Create a scatter plot of two continuous variables.
+#&#39;
+#&#39; @param .dataset Data to plot.
+#&#39; @param .xvar Variable for the x axis.
+#&#39; @param .yvar Variable for the y axis.
+#&#39;
+#&#39; @return Creates a ggplot.
+#&#39;
+scatter_plot &lt;- function(.dataset, .xvar, .yvar) {
+  stopifnot(!missing(.xvar), !missing(.yvar))
+  scatter &lt;- ggplot2::ggplot(.dataset, ggplot2::aes(x = {{.xvar}}, y = {{.yvar}})) +
+    ggplot2::geom_point()
+  return(scatter)
+}
+scatter_plot(NHANES, Height, Weight)</code></pre>
+<p><img src="/site/material/2019-11-29-functions_files/figure-html/plot-function-stopifnot-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>There are many more tools for “defensive programming” and it could be a session
+on its own, but here we just introduce it.</p>
+<p>A massive advantage of using functions is that if you want to make a change to all
+your code, you can very easily do it in the R function and it will change all
+your other code too! So let’s say we want to change the plot theme, so it looks
+better:</p>
+<pre class="r"><code>#&#39; Create a scatter plot of two continuous variables.
+#&#39;
+#&#39; @param .dataset Data to plot.
+#&#39; @param .xvar Variable for the x axis.
+#&#39; @param .yvar Variable for the y axis.
+#&#39;
+#&#39; @return Creates a ggplot.
+#&#39;
+scatter_plot &lt;- function(.dataset, .xvar, .yvar) {
+  stopifnot(!missing(.xvar), !missing(.yvar))
+  scatter &lt;- ggplot2::ggplot(.dataset, ggplot2::aes(x = {{.xvar}}, y = {{.yvar}})) +
+    ggplot2::geom_point() +
+    ggplot2::theme_minimal()
+  return(scatter)
+}
+scatter_plot(NHANES, Height, Weight)</code></pre>
+<p><img src="/site/material/2019-11-29-functions_files/figure-html/plot-function-add-more-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>You now have an idea on how to make a basic function! Try it out in this exercise:</p>
+</div>
+</div>
+<div id="exericse" class="section level2">
+<h2>Exericse</h2>
+<p>Copy and paste this code into your R script and rearrange the code and create
+it into its own function. Name the four arguments <code>.dataset</code>, <code>.xvar</code>, <code>.yvar</code>,
+and <code>.groupvar</code>.</p>
+<pre class="r"><code>ggplot(NHANES, aes(x = Height, y = Weight, colour = Gender)) +
+  geom_point(size = 2, alpha = 0.3) +
+  scale_colour_viridis_d(option = &quot;B&quot;, begin = 0.2, end = 0.7) +
+  theme_minimal() +
+  theme(text = element_text(colour = &quot;grey40&quot;))
+
+scatter_by_group &lt;- ___(___, ___, ___, ___) {
+  
+}</code></pre>
+</div>
+
+                        </div>
+                        
+                        
+
+                    </div>
+                    
+
+                    
+
+                    
+
+                    <div class="col-md-3">
+
+                        
+
+                        
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">Search</h3>
+    </div>
+
+    <div class="panel-body">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" role="search">
+            <div class="input-group">
+                <input type="search" name="q" class="form-control" placeholder="Search">
+                <input type="hidden" name="sitesearch" value="https://au-cru.github.io/site/">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">Categories</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+            
+            <li><a href="https://au-cru.github.io/site/categories/advanced">advanced (1)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/beginner">beginner (6)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/beginner-intermediate">beginner-intermediate (1)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/code-along">code-along (8)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/intermediate">intermediate (1)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/lectures">lectures (1)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/r">r (8)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/rhus">rhus (1)</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+    <div class="panel-heading">
+      <h3 class="panel-title">Tags</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="tag-cloud">
+            
+            <li><a href="https://au-cru.github.io/site/tags/asking-for-help"><i class="fa fa-tags"></i> asking-for-help</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/collaboration"><i class="fa fa-tags"></i> collaboration</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/data-management"><i class="fa fa-tags"></i> data-management</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/data-visualization"><i class="fa fa-tags"></i> data-visualization</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/data-wrangling"><i class="fa fa-tags"></i> data-wrangling</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/devtools"><i class="fa fa-tags"></i> devtools</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/dont-repeat-yourself"><i class="fa fa-tags"></i> dont-repeat-yourself</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/dplyr"><i class="fa fa-tags"></i> dplyr</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/dynamic-document-generation"><i class="fa fa-tags"></i> dynamic-document-generation</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/efficiency"><i class="fa fa-tags"></i> efficiency</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/error-messages"><i class="fa fa-tags"></i> error-messages</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/functions"><i class="fa fa-tags"></i> functions</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/ggplot2"><i class="fa fa-tags"></i> ggplot2</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/git"><i class="fa fa-tags"></i> git</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/github"><i class="fa fa-tags"></i> github</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/markdown"><i class="fa fa-tags"></i> markdown</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/package-development"><i class="fa fa-tags"></i> package-development</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/prodigenr"><i class="fa fa-tags"></i> prodigenr</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/productivity"><i class="fa fa-tags"></i> productivity</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/project-management"><i class="fa fa-tags"></i> project-management</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/r"><i class="fa fa-tags"></i> r</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/r-documentation"><i class="fa fa-tags"></i> r-documentation</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/r-markdown"><i class="fa fa-tags"></i> r-markdown</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/r-packages"><i class="fa fa-tags"></i> r-packages</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/r-projects"><i class="fa fa-tags"></i> r-projects</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/report-writing"><i class="fa fa-tags"></i> report-writing</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/reprex"><i class="fa fa-tags"></i> reprex</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/reproducibility"><i class="fa fa-tags"></i> reproducibility</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/reproducible-data-analysis"><i class="fa fa-tags"></i> reproducible-data-analysis</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/reproducible-documents"><i class="fa fa-tags"></i> reproducible-documents</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/reproducible-examples"><i class="fa fa-tags"></i> reproducible-examples</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/rmarkdown"><i class="fa fa-tags"></i> rmarkdown</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/stackoverflow"><i class="fa fa-tags"></i> stackoverflow</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/style-guide"><i class="fa fa-tags"></i> style-guide</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/styler"><i class="fa fa-tags"></i> styler</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/tidy-code"><i class="fa fa-tags"></i> tidy-code</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/usethis"><i class="fa fa-tags"></i> usethis</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/version-control"><i class="fa fa-tags"></i> version-control</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/workflow-management"><i class="fa fa-tags"></i> workflow-management</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+                        
+
+                    </div>
+                    
+
+                    
+
+                </div>
+                
+
+            </div>
+            
+        </div>
+        
+
+        <footer id="footer">
+    <div class="container">
+
+        
+        <div class="col-md-4 col-sm-6">
+            <h4>About us</h4>
+
+            <!-- raw HTML omitted -->
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+        <div class="col-md-4 col-sm-6">
+
+            
+
+        </div>
+        
+
+        
+        <div class="col-md-4 col-sm-6">
+
+          <h4>Contact</h4>
+
+            
+
+            <a href="/contact" class="btn btn-small btn-template-main">Go to contact page</a>
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+    </div>
+    
+</footer>
+
+
+
+
+
+
+
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-12">
+            
+            <p class="pull-left">Copyright (c) 2019, AU CRU; all rights reserved. See <a href='license/'>license</a>.</p>
+            
+            <p class="pull-right">
+              Template by <a href="http://bootstrapious.com/free-templates">Bootstrapious</a>.
+              
+
+              Ported to Hugo by <a href="https://github.com/devcows/hugo-universal-theme">DevCows</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    </div>
+    
+
+    
+<script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0/jquery.counterup.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js"></script>
+
+<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCFhtWLJcE30xOAjcbSFi-0fnoVmQZPb1Y&v=3.exp"></script>
+
+<script src="https://au-cru.github.io/site/js/hpneo.gmaps.js"></script>
+<script src="https://au-cru.github.io/site/js/gmaps.init.js"></script>
+<script src="https://au-cru.github.io/site/js/front.js"></script>
+
+
+<script src="https://au-cru.github.io/site/js/owl.carousel.min.js"></script>
+
+
+  </body>
+</html>

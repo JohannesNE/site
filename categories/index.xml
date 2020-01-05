@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on AU CRU</title>
+    <link>https://au-cru.github.io/site/categories/</link>
+    <description>Recent content in Categories on AU CRU</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://au-cru.github.io/site/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Code-along</title>
+      <link>https://au-cru.github.io/site/categories/code-along/</link>
+      <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/categories/code-along/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Intermediate</title>
+      <link>https://au-cru.github.io/site/categories/intermediate/</link>
+      <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/categories/intermediate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://au-cru.github.io/site/categories/r/</link>
+      <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/categories/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Beginner</title>
+      <link>https://au-cru.github.io/site/categories/beginner/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/categories/beginner/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Beginner-Intermediate</title>
+      <link>https://au-cru.github.io/site/categories/beginner-intermediate/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/categories/beginner-intermediate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Advanced</title>
+      <link>https://au-cru.github.io/site/categories/advanced/</link>
+      <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/categories/advanced/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lectures</title>
+      <link>https://au-cru.github.io/site/categories/lectures/</link>
+      <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/categories/lectures/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rhus</title>
+      <link>https://au-cru.github.io/site/categories/rhus/</link>
+      <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/categories/rhus/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

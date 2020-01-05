@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dynamic document generation on AU CRU</title>
+    <link>https://au-cru.github.io/site/tags/dynamic-document-generation/</link>
+    <description>Recent content in dynamic document generation on AU CRU</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://au-cru.github.io/site/tags/dynamic-document-generation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Reproducible reports with R Markdown</title>
+      <link>https://au-cru.github.io/site/material/2019-12-13-intro-rmarkdown/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/material/2019-12-13-intro-rmarkdown/</guid>
+      <description>install.packages(&amp;quot;rmarkdown&amp;quot;) Objectives To become aware of the importance of reproducibility of data analyses. To learn how to generate high quality reports that can be shared with a broader audience. To create reproducible documents interwoven with R code that can be run on updated or different data sets. To use Rstudio not as a data science tool but also as a text editor and compiler! To know where to go for continued learning.</description>
+    </item>
+    
+  </channel>
+</rss>

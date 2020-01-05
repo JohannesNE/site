@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>data visualization on AU CRU</title>
+    <link>https://au-cru.github.io/site/tags/data-visualization/</link>
+    <description>Recent content in data visualization on AU CRU</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://au-cru.github.io/site/tags/data-visualization/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Data visualization with ggplot2, part 1</title>
+      <link>https://au-cru.github.io/site/material/2019-11-01-intro-ggplot2/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/material/2019-11-01-intro-ggplot2/</guid>
+      <description>Preparation Please install the ggplot2 package:
+install.packages(&amp;quot;ggplot2&amp;quot;)  Objectives To become aware of the powerful features of ggplot2. To learn about some of the fundamentals of easily creating amazing graphics. To know about some resources to continue learning.  At the end of this session, you will achieve this objective by creating a fairly simple, visually-appealing graph that shows:
+ At least three data values, ie. “aesthetics” or aes(), such as what to put on the x-axis, the y-axis, and or using colour or size.</description>
+    </item>
+    
+  </channel>
+</rss>

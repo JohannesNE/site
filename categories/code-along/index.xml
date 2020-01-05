@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Code-along on AU CRU</title>
+    <link>https://au-cru.github.io/site/categories/code-along/</link>
+    <description>Recent content in Code-along on AU CRU</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://au-cru.github.io/site/categories/code-along/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>First steps in creating R packages</title>
+      <link>https://au-cru.github.io/site/material/2020-05-08-create-package/</link>
+      <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/material/2020-05-08-create-package/</guid>
+      <description>NOTE: This is still in development.
+ install.packages(c(&amp;quot;devtools&amp;quot;, &amp;quot;usethis&amp;quot;)) Objectives To see that making packages is not as difficult as it seems. To learn about and use the tools to simplify and automate package development. To provide the resources to expand your knowledge on package development.  At the end of this session you will be able:
+Setup up the necessary folders and files for making a package. Fill out some package description information (in the DESCRIPTION and README.</description>
+    </item>
+    
+    <item>
+      <title>Best practices in data analysis workflow and project management in R</title>
+      <link>https://au-cru.github.io/site/material/2020-04-24-proj-management/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/material/2020-04-24-proj-management/</guid>
+      <description>NOTE: This is still in development.
+ Session details install.packages(c(&amp;quot;usethis&amp;quot;, &amp;quot;prodigenr&amp;quot;, &amp;quot;drake&amp;quot;, &amp;quot;styler&amp;quot;)) Objectives To become aware of and learn some “best practices” (or “good enough practices”) for project organization. To use RStudio to create and manage projects with a consistent structure.  At the end of this session you will be able:
+ To apply the best practices in using R for data analysis. To create a new RStudio project with a consistent folder structure.</description>
+    </item>
+    
+    <item>
+      <title>Keeping track of changes to your files with version control using Git</title>
+      <link>https://au-cru.github.io/site/material/2020-04-10-intro-git/</link>
+      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/material/2020-04-10-intro-git/</guid>
+      <description>NOTE: This is still in development.
+ library(DiagrammeR) install.packages(&amp;quot;rmarkdown&amp;quot;) Session details Objectives To become aware of what “formal” version control is and looks like. To learn about the tools integrated into RStudio to make use of Git. To know the basic, and most commonly used, tools for Git. To know … Git and version control is not, not, easy. It is hard. But it gets easier and it is very worth it to learn.</description>
+    </item>
+    
+    <item>
+      <title>Asking help in R</title>
+      <link>https://au-cru.github.io/site/material/2020-03-27-asking-for-help/</link>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/material/2020-03-27-asking-for-help/</guid>
+      <description>NOTE: This is still in development.
+ install.packages(&amp;quot;rmarkdown&amp;quot;) Objectives To become aware of the importance of reproducibility of data analyses. To learn how to generate high quality reports that can be shared with a broader audience. To create reproducible documents interwoven with R code that can be run on updated or different data sets. To use Rstudio not as a data science tool but also as a text editor and compiler!</description>
+    </item>
+    
+    <item>
+      <title>Reproducible reports with R Markdown</title>
+      <link>https://au-cru.github.io/site/material/2019-12-13-intro-rmarkdown/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/material/2019-12-13-intro-rmarkdown/</guid>
+      <description>install.packages(&amp;quot;rmarkdown&amp;quot;) Objectives To become aware of the importance of reproducibility of data analyses. To learn how to generate high quality reports that can be shared with a broader audience. To create reproducible documents interwoven with R code that can be run on updated or different data sets. To use Rstudio not as a data science tool but also as a text editor and compiler! To know where to go for continued learning.</description>
+    </item>
+    
+    <item>
+      <title>Creating your own functions in R</title>
+      <link>https://au-cru.github.io/site/material/2019-11-29-functions/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/material/2019-11-29-functions/</guid>
+      <description>Resources for learning and help Here for resources
+ Session content Before we begin, we’ll set up an R project, create a folder named R/, and then create a new file in the R/ folder of the project.
+Basic structure of a function In R, all actions are functions. For instance, the + is a function, mean() is a function, [] is a function, and so on. So creating your functions can make doing your work easier and more efficient.</description>
+    </item>
+    
+    <item>
+      <title>Data wrangling with dplyr, part 1</title>
+      <link>https://au-cru.github.io/site/material/2019-11-15-intro-dplyr/</link>
+      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/material/2019-11-15-intro-dplyr/</guid>
+      <description>Objectives To learn the difference between “messy” and “tidy” data and see the advantages of using data that are consistently structured. To perform simple data transformations and create summaries. To get started with the tools that help tidying up and reshaping the data, and to learn where to find additional information and resources.  At the end of this session you will be able:
+To write code using the %&amp;gt;% operator.</description>
+    </item>
+    
+    <item>
+      <title>Data visualization with ggplot2, part 1</title>
+      <link>https://au-cru.github.io/site/material/2019-11-01-intro-ggplot2/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://au-cru.github.io/site/material/2019-11-01-intro-ggplot2/</guid>
+      <description>Preparation Please install the ggplot2 package:
+install.packages(&amp;quot;ggplot2&amp;quot;)  Objectives To become aware of the powerful features of ggplot2. To learn about some of the fundamentals of easily creating amazing graphics. To know about some resources to continue learning.  At the end of this session, you will achieve this objective by creating a fairly simple, visually-appealing graph that shows:
+ At least three data values, ie. “aesthetics” or aes(), such as what to put on the x-axis, the y-axis, and or using colour or size.</description>
+    </item>
+    
+  </channel>
+</rss>

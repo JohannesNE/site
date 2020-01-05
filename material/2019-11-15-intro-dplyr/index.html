@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data wrangling with dplyr, part 1</title>
+  <meta name="author" content="" />
+
+  
+  <meta name="keywords" content="au-cru, programming, rstats, r">
+  
+
+  
+  <meta name="description" content="Learn about the basics of managing and wrangling your data using the powerful dplyr package.
+">
+  
+
+  <meta name="generator" content="Hugo 0.61.0" />
+
+  <link rel="stylesheet" href="https://au-cru.github.io/site/css/github.css" rel="stylesheet" id="theme-stylesheet">
+  <script src="https://au-cru.github.io/site/js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.10.2/css/all.css">
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  
+  <link href="/site/css/animate.css" rel="stylesheet">
+
+  
+  
+    <link href="/site/css/style.blue.css" rel="stylesheet" id="theme-stylesheet">
+  
+
+
+  
+  <link href="/site/css/custom.css" rel="stylesheet">
+
+  
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+  <link rel="icon" href="/site/img/favicon.ico?v=2" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/site/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/site/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/site/img/favicon-16x16.png">
+  <link rel="manifest" href="/site/site.webmanifest">
+  <link rel="mask-icon" href="/site/img/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#2d89ef">
+  <meta name="theme-color" content="#ffffff">
+
+  
+
+  <link href="/site/css/owl.carousel.css" rel="stylesheet">
+  <link href="/site/css/owl.theme.css" rel="stylesheet">
+
+  <link rel="alternate" href="https://au-cru.github.io/index.xml" type="application/rss+xml" title="AU CRU">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@">
+  <meta name="twitter:title" content="Data wrangling with dplyr, part 1">
+  <meta name="twitter:image" content="https://au-cru.github.io/site/">
+  <meta name="twitter:description" content="Learn about the basics of managing and wrangling your data using the powerful dplyr package.
+">
+
+  
+  <meta property="og:title" content="Data wrangling with dplyr, part 1" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://au-cru.github.io/site/material/2019-11-15-intro-dplyr//" />
+  <meta property="og:image" content="img/logo.png" />
+
+</head>
+
+
+  <body>
+
+    <div id="all">
+
+        <header>
+
+          <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand home" href="https://au-cru.github.io/site/">
+                    <img src="https://au-cru.github.io/site/img/logo.png" alt="Data wrangling with dplyr, part 1 logo" class="hidden-xs hidden-sm">
+                    <img src="https://au-cru.github.io/site/img/logo-small.png" alt="Data wrangling with dplyr, part 1 logo" class="visible-xs visible-sm">
+                    <span class="sr-only">Data wrangling with dplyr, part 1 - go to homepage</span>
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                      <span class="sr-only">Toggle Navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                </div>
+            </div>
+            
+
+            <div class="navbar-collapse collapse" id="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                  
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/site/">Home</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/site/material/">Content</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/site/more-info/">More Info</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="/site/surveys/">Surveys</a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="https://github.com/au-cru"><i class='fab fa-github'></i></a>
+                    
+                  </li>
+                  
+                  
+                  <li class="dropdown">
+                    
+                    <a href="https://twitter.com/aucru"><i class='fab fa-twitter'></i></a>
+                    
+                  </li>
+                  
+                </ul>
+            </div>
+            
+
+            <div class="collapse clearfix" id="search">
+
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+
+                </span>
+                    </div>
+                </form>
+
+            </div>
+            
+
+        </div>
+    </div>
+    
+
+</div>
+
+
+
+
+        </header>
+
+        <div id="heading-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Data wrangling with dplyr, part 1</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div id="content">
+            <div class="container">
+
+                <div class="row">
+
+                    
+
+                    <div class="col-md-9" id="blog-post">
+
+                        <p class="text-muted text-uppercase mb-small text-right">
+                           By <strong>Sara Tomiolo, Luke W. Johnston</strong>  |
+                          November 15, 2019</p>
+
+                        <div id="post-content">
+                          
+
+
+<div id="objectives" class="section level3">
+<h3>Objectives</h3>
+<ol style="list-style-type: decimal">
+<li>To learn the difference between “messy” and “tidy” data and see the advantages of using data that are consistently structured.</li>
+<li>To perform simple data transformations and create summaries.</li>
+<li>To get started with the tools that help tidying up and reshaping the data, and to learn where to find additional information and resources.</li>
+</ol>
+<p><strong>At the end of this session you will be able:</strong></p>
+<ol style="list-style-type: decimal">
+<li>To write code using the <code>%&gt;%</code> operator.</li>
+<li>To perform simple data transformations using dplyr function <code>mutate()</code>.</li>
+<li>To select variables and observations to work with using dplyr functions <code>filter()</code>and <code>select()</code>.</li>
+<li>To order data by variable using dplyr function <code>arrange()</code>.</li>
+<li>To provide a simple data summary using dplyr functions <code>group_by()</code> and <code>summarise()</code>.</li>
+</ol>
+<p>Make sure to install:</p>
+<pre class="r"><code>install.packages(&quot;dplyr&quot;)</code></pre>
+</div>
+<div id="resources-for-learning-and-help" class="section level2">
+<h2>Resources for learning and help</h2>
+<p><a href="/more-info/#resources">Here for resources</a></p>
+</div>
+<div id="quickly-look-over-the-data-we-will-use" class="section level2">
+<h2>Quickly look over the data we will use</h2>
+<p>We’ll be using a very simple dataset that is built-in to the tidyr package. This dataset contains data on tuberculosis cases in Afghanistan, Brazil, and China from 1999 and 2000.</p>
+<pre class="r"><code># Or library(tidyverse)
+library(dplyr)
+#&gt; 
+#&gt; Attaching package: &#39;dplyr&#39;
+#&gt; The following objects are masked from &#39;package:stats&#39;:
+#&gt; 
+#&gt;     filter, lag
+#&gt; The following objects are masked from &#39;package:base&#39;:
+#&gt; 
+#&gt;     intersect, setdiff, setequal, union
+library(tidyr)
+
+names(table1)
+#&gt; [1] &quot;country&quot;    &quot;year&quot;       &quot;cases&quot;      &quot;population&quot;
+
+str(table1)
+#&gt; Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    6 obs. of  4 variables:
+#&gt;  $ country   : chr  &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Brazil&quot; &quot;Brazil&quot; ...
+#&gt;  $ year      : int  1999 2000 1999 2000 1999 2000
+#&gt;  $ cases     : int  745 2666 37737 80488 212258 213766
+#&gt;  $ population: int  19987071 20595360 172006362 174504898 1272915272 1280428583
+
+summary(table1)
+#&gt;    country               year          cases          population       
+#&gt;  Length:6           Min.   :1999   Min.   :   745   Min.   :1.999e+07  
+#&gt;  Class :character   1st Qu.:1999   1st Qu.: 11434   1st Qu.:5.845e+07  
+#&gt;  Mode  :character   Median :2000   Median : 59112   Median :1.733e+08  
+#&gt;                     Mean   :2000   Mean   : 91277   Mean   :4.901e+08  
+#&gt;                     3rd Qu.:2000   3rd Qu.:179316   3rd Qu.:9.983e+08  
+#&gt;                     Max.   :2000   Max.   :213766   Max.   :1.280e+09
+
+# View(table1)
+
+# a tibble is a modified data.frame, making it slightly easier to use
+as_tibble(table1)
+#&gt; # A tibble: 6 x 4
+#&gt;   country      year  cases population
+#&gt;   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+#&gt; 1 Afghanistan  1999    745   19987071
+#&gt; 2 Afghanistan  2000   2666   20595360
+#&gt; 3 Brazil       1999  37737  172006362
+#&gt; 4 Brazil       2000  80488  174504898
+#&gt; 5 China        1999 212258 1272915272
+#&gt; 6 China        2000 213766 1280428583</code></pre>
+</div>
+<div id="exercise-choose-and-look-at-a-dataset" class="section level2">
+<h2>Exercise: Choose and look at a dataset</h2>
+<p>Create an <code>exercise.R</code> file (we will have done that in class) and put these code into the file. Then choose one of the below datasets that you will use for <strong>only the exercises</strong>:</p>
+<ul>
+<li><code>airquality</code> (<em>recommended for complete beginners</em>)</li>
+<li><code>swiss</code> (<em>recommended for complete beginners</em>)</li>
+<li><code>population</code></li>
+<li><code>storms</code></li>
+<li><code>starwars</code></li>
+</ul>
+<p>Copy the code below, replacing the <code>___</code> with the relevant dataset. This format is used throughout the session.</p>
+<pre class="r"><code># load the packages
+library(dplyr)
+library(tidyr)
+
+# variables
+names(___)
+
+# general contents
+str(___)
+
+# using the dplyr function
+glimpse(___)
+
+# quick summary
+summary(___)
+
+# compare a data.frame with a tibble
+as.data.frame(___)
+as_tibble(___)
+
+# convert your dataset into a tibble
+___ &lt;- as_tibble(___)</code></pre>
+</div>
+<div id="messy-vs.-tidy-data" class="section level2">
+<h2>“Messy” vs. “tidy” data</h2>
+<p><strong>The dataset is tidy when:</strong></p>
+<ul>
+<li>Each variable has its own column.</li>
+<li>Each observation has its own row</li>
+<li>Each value has its own cell</li>
+</ul>
+<p>Look at the structure of the toy tidyr datasets <code>table1</code>, <code>table3</code>, and <code>table4a</code>. Which is tidy?</p>
+<pre class="r"><code>table1
+#&gt; # A tibble: 6 x 4
+#&gt;   country      year  cases population
+#&gt;   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+#&gt; 1 Afghanistan  1999    745   19987071
+#&gt; 2 Afghanistan  2000   2666   20595360
+#&gt; 3 Brazil       1999  37737  172006362
+#&gt; 4 Brazil       2000  80488  174504898
+#&gt; 5 China        1999 212258 1272915272
+#&gt; 6 China        2000 213766 1280428583
+
+table3
+#&gt; # A tibble: 6 x 3
+#&gt;   country      year rate             
+#&gt; * &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;            
+#&gt; 1 Afghanistan  1999 745/19987071     
+#&gt; 2 Afghanistan  2000 2666/20595360    
+#&gt; 3 Brazil       1999 37737/172006362  
+#&gt; 4 Brazil       2000 80488/174504898  
+#&gt; 5 China        1999 212258/1272915272
+#&gt; 6 China        2000 213766/1280428583
+
+table4a
+#&gt; # A tibble: 3 x 3
+#&gt;   country     `1999` `2000`
+#&gt; * &lt;chr&gt;        &lt;int&gt;  &lt;int&gt;
+#&gt; 1 Afghanistan    745   2666
+#&gt; 2 Brazil       37737  80488
+#&gt; 3 China       212258 213766</code></pre>
+<p>More or less, <code>table1</code> is tidy while the others are not. That’s because in <code>table1</code>, each column has specific and unique information and each row represents a single observation from a single location at a single point in time.</p>
+<p><strong>Benefits of tidy data and tidy code</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>Time spent preparing your data at the beginning can save hours of frustration in the long run.</li>
+<li>“Tidy data” provides a concept and the package tidyr provides the functions for this work.</li>
+<li>Tibbles makes datasets efficient to work with.</li>
+<li>dplyr provides fast and intuitive data processing functions.
+<ul>
+<li>For <em>very very large</em> datasets, the data.table package is very fast and powerful</li>
+</ul></li>
+<li>The <code>%&gt;%</code> pipe operator can help clarify complex data processing workflows.</li>
+</ol>
+</div>
+<div id="pipe-operator" class="section level2">
+<h2>Pipe operator: <code>%&gt;%</code></h2>
+<ul>
+<li>What if you want to run multiple operations on your dataframe at the same time?</li>
+</ul>
+<p>You can run multiple lines of code, which may clutter your workspace.</p>
+<p>You can nest multiple operations using parentheses, which is doable but may become complicated to read and follow</p>
+<pre class="r"><code># normal R way of nesting functions
+head(glimpse(table1))
+#&gt; Observations: 6
+#&gt; Variables: 4
+#&gt; $ country    &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Brazil&quot;, &quot;Brazil&quot;, &quot;China&quot;,…
+#&gt; $ year       &lt;int&gt; 1999, 2000, 1999, 2000, 1999, 2000
+#&gt; $ cases      &lt;int&gt; 745, 2666, 37737, 80488, 212258, 213766
+#&gt; $ population &lt;int&gt; 19987071, 20595360, 172006362, 174504898, 1272915272, 1280…
+#&gt; # A tibble: 6 x 4
+#&gt;   country      year  cases population
+#&gt;   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+#&gt; 1 Afghanistan  1999    745   19987071
+#&gt; 2 Afghanistan  2000   2666   20595360
+#&gt; 3 Brazil       1999  37737  172006362
+#&gt; 4 Brazil       2000  80488  174504898
+#&gt; 5 China        1999 212258 1272915272
+#&gt; 6 China        2000 213766 1280428583
+
+# the pipe way of linking functions
+table1 %&gt;% 
+  glimpse() %&gt;% 
+  head()
+#&gt; Observations: 6
+#&gt; Variables: 4
+#&gt; $ country    &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Brazil&quot;, &quot;Brazil&quot;, &quot;China&quot;,…
+#&gt; $ year       &lt;int&gt; 1999, 2000, 1999, 2000, 1999, 2000
+#&gt; $ cases      &lt;int&gt; 745, 2666, 37737, 80488, 212258, 213766
+#&gt; $ population &lt;int&gt; 19987071, 20595360, 172006362, 174504898, 1272915272, 1280…
+#&gt; # A tibble: 6 x 4
+#&gt;   country      year  cases population
+#&gt;   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+#&gt; 1 Afghanistan  1999    745   19987071
+#&gt; 2 Afghanistan  2000   2666   20595360
+#&gt; 3 Brazil       1999  37737  172006362
+#&gt; 4 Brazil       2000  80488  174504898
+#&gt; 5 China        1999 212258 1272915272
+#&gt; 6 China        2000 213766 1280428583</code></pre>
+<ul>
+<li><p>This operator, called pipe, takes the output of one function and sends it directly to the next one. This is particularly useful when you are doing many operations on the same dataset.</p></li>
+<li><p>The <code>%&gt;%</code> pipe operator can help clarify complex data processing workflows. In RStudio you can use the shortcut <code>Ctrl + Shift + M</code> or <code>Cmd + Shift + M</code> if you work on a Mac.</p></li>
+<li><p>You can read the function pipe like the word “then”.
+In this case glimpse table1 and <strong>then</strong> visualize the first 10 lines.</p></li>
+</ul>
+<pre class="r"><code># normal R way of nesting functions
+head(glimpse(table1))
+#&gt; Observations: 6
+#&gt; Variables: 4
+#&gt; $ country    &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Brazil&quot;, &quot;Brazil&quot;, &quot;China&quot;,…
+#&gt; $ year       &lt;int&gt; 1999, 2000, 1999, 2000, 1999, 2000
+#&gt; $ cases      &lt;int&gt; 745, 2666, 37737, 80488, 212258, 213766
+#&gt; $ population &lt;int&gt; 19987071, 20595360, 172006362, 174504898, 1272915272, 1280…
+#&gt; # A tibble: 6 x 4
+#&gt;   country      year  cases population
+#&gt;   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+#&gt; 1 Afghanistan  1999    745   19987071
+#&gt; 2 Afghanistan  2000   2666   20595360
+#&gt; 3 Brazil       1999  37737  172006362
+#&gt; 4 Brazil       2000  80488  174504898
+#&gt; 5 China        1999 212258 1272915272
+#&gt; 6 China        2000 213766 1280428583
+
+# the pipe way of linking functions
+table1 %&gt;% 
+  glimpse() %&gt;% 
+  head()
+#&gt; Observations: 6
+#&gt; Variables: 4
+#&gt; $ country    &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Brazil&quot;, &quot;Brazil&quot;, &quot;China&quot;,…
+#&gt; $ year       &lt;int&gt; 1999, 2000, 1999, 2000, 1999, 2000
+#&gt; $ cases      &lt;int&gt; 745, 2666, 37737, 80488, 212258, 213766
+#&gt; $ population &lt;int&gt; 19987071, 20595360, 172006362, 174504898, 1272915272, 1280…
+#&gt; # A tibble: 6 x 4
+#&gt;   country      year  cases population
+#&gt;   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+#&gt; 1 Afghanistan  1999    745   19987071
+#&gt; 2 Afghanistan  2000   2666   20595360
+#&gt; 3 Brazil       1999  37737  172006362
+#&gt; 4 Brazil       2000  80488  174504898
+#&gt; 5 China        1999 212258 1272915272
+#&gt; 6 China        2000 213766 1280428583</code></pre>
+</div>
+<div id="transforming-or-adding-variables-mutate" class="section level2">
+<h2>Transforming or adding variables: <code>mutate()</code></h2>
+<p>The <code>mutate()</code> function adds or replaces a variable/column in a dataset. To add</p>
+<pre class="r"><code># Replace an existing variable
+table1 %&gt;%
+    mutate(population = population / 1000000)
+#&gt; # A tibble: 6 x 4
+#&gt;   country      year  cases population
+#&gt;   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;dbl&gt;
+#&gt; 1 Afghanistan  1999    745       20.0
+#&gt; 2 Afghanistan  2000   2666       20.6
+#&gt; 3 Brazil       1999  37737      172. 
+#&gt; 4 Brazil       2000  80488      175. 
+#&gt; 5 China        1999 212258     1273. 
+#&gt; 6 China        2000 213766     1280.
+
+# Create or replace multiple variables by using the &quot;,&quot;
+table1 %&gt;%
+    mutate(new_column = &quot;only one value&quot;,
+           population = population / 1000000)
+#&gt; # A tibble: 6 x 5
+#&gt;   country      year  cases population new_column    
+#&gt;   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;dbl&gt; &lt;chr&gt;         
+#&gt; 1 Afghanistan  1999    745       20.0 only one value
+#&gt; 2 Afghanistan  2000   2666       20.6 only one value
+#&gt; 3 Brazil       1999  37737      172.  only one value
+#&gt; 4 Brazil       2000  80488      175.  only one value
+#&gt; 5 China        1999 212258     1273.  only one value
+#&gt; 6 China        2000 213766     1280.  only one value
+
+# Or create a new variable based on a condition
+table1 %&gt;%
+    mutate(after_2000 = if_else(year &gt;= 2000, &quot;yes&quot;, &quot;no&quot;))
+#&gt; # A tibble: 6 x 5
+#&gt;   country      year  cases population after_2000
+#&gt;   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt; &lt;chr&gt;     
+#&gt; 1 Afghanistan  1999    745   19987071 no        
+#&gt; 2 Afghanistan  2000   2666   20595360 yes       
+#&gt; 3 Brazil       1999  37737  172006362 no        
+#&gt; 4 Brazil       2000  80488  174504898 yes       
+#&gt; 5 China        1999 212258 1272915272 no        
+#&gt; 6 China        2000 213766 1280428583 yes
+
+# Create a new variable using existing variables and save a new dataframe
+table1_rate &lt;- table1 %&gt;%
+    mutate(rate = (cases / population) * 100000)
+table1_rate
+#&gt; # A tibble: 6 x 5
+#&gt;   country      year  cases population  rate
+#&gt;   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt; &lt;dbl&gt;
+#&gt; 1 Afghanistan  1999    745   19987071  3.73
+#&gt; 2 Afghanistan  2000   2666   20595360 12.9 
+#&gt; 3 Brazil       1999  37737  172006362 21.9 
+#&gt; 4 Brazil       2000  80488  174504898 46.1 
+#&gt; 5 China        1999 212258 1272915272 16.7 
+#&gt; 6 China        2000 213766 1280428583 16.7</code></pre>
+</div>
+<div id="exercise-piping-transforming-and-adding" class="section level2">
+<h2>Exercise: Piping, transforming, and adding</h2>
+<p>Time: 10 min</p>
+<pre class="r"><code># explore the structure of the data
+names(___)
+
+# pipe the data into mutate function and:
+new_dataset &lt;- ___ %&gt;% # dataset
+    mutate(
+        # 1. create a new variable
+        ___ = ___,
+        # 2. transform/replace an existing variable
+        ___ = ___,
+        # 3. create a new variable using a conditional
+        ___ = if_else(___, TRUE, FALSE)
+    )
+new_dataset</code></pre>
+</div>
+<div id="select-specific-data-by-the-variables-select" class="section level2">
+<h2>Select specific data by the variables: <code>select()</code></h2>
+<p><code>select()</code> works on columns of a data.frame.</p>
+<pre class="r"><code># select columns/variables by name, without quotes
+table1_rate %&gt;%
+    select(country, year, rate)
+#&gt; # A tibble: 6 x 3
+#&gt;   country      year  rate
+#&gt;   &lt;chr&gt;       &lt;int&gt; &lt;dbl&gt;
+#&gt; 1 Afghanistan  1999  3.73
+#&gt; 2 Afghanistan  2000 12.9 
+#&gt; 3 Brazil       1999 21.9 
+#&gt; 4 Brazil       2000 46.1 
+#&gt; 5 China        1999 16.7 
+#&gt; 6 China        2000 16.7
+
+# to *not* select a variable, us minus (-)
+table1_rate %&gt;%
+    select(-country)
+#&gt; # A tibble: 6 x 4
+#&gt;    year  cases population  rate
+#&gt;   &lt;int&gt;  &lt;int&gt;      &lt;int&gt; &lt;dbl&gt;
+#&gt; 1  1999    745   19987071  3.73
+#&gt; 2  2000   2666   20595360 12.9 
+#&gt; 3  1999  37737  172006362 21.9 
+#&gt; 4  2000  80488  174504898 46.1 
+#&gt; 5  1999 212258 1272915272 16.7 
+#&gt; 6  2000 213766 1280428583 16.7
+
+# when you have many variables with similar names, use &quot;matching&quot; functions
+table1_rate %&gt;%
+    select(starts_with(&quot;c&quot;), ends_with(&quot;e&quot;), contains(&quot;pop&quot;))
+#&gt; # A tibble: 6 x 4
+#&gt;   country      cases  rate population
+#&gt;   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt;      &lt;int&gt;
+#&gt; 1 Afghanistan    745  3.73   19987071
+#&gt; 2 Afghanistan   2666 12.9    20595360
+#&gt; 3 Brazil       37737 21.9   172006362
+#&gt; 4 Brazil       80488 46.1   174504898
+#&gt; 5 China       212258 16.7  1272915272
+#&gt; 6 China       213766 16.7  1280428583</code></pre>
+</div>
+<div id="filtersubset-the-data-by-row-based-on-values-and-conditions-filter" class="section level2">
+<h2>Filter/subset the data by row based on values and conditions: <code>filter()</code></h2>
+<p><code>filter()</code> works on rows of a data.frame.</p>
+<p><strong>Warning</strong>: Filter using logic… and humans are very bad at logic… Make sure to be very certain that you think your logic is what the code reads as logic… Lots of mistakes can be made at this stage! Especially with complex logic situations.</p>
+<pre class="r"><code># when country is equal to
+table1_rate %&gt;%
+    filter(country == &quot;Brazil&quot;)
+#&gt; # A tibble: 2 x 5
+#&gt;   country  year cases population  rate
+#&gt;   &lt;chr&gt;   &lt;int&gt; &lt;int&gt;      &lt;int&gt; &lt;dbl&gt;
+#&gt; 1 Brazil   1999 37737  172006362  21.9
+#&gt; 2 Brazil   2000 80488  174504898  46.1
+
+# when country is *not* equal to
+table1_rate %&gt;%
+    filter(country != &quot;Brazil&quot;)
+#&gt; # A tibble: 4 x 5
+#&gt;   country      year  cases population  rate
+#&gt;   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt; &lt;dbl&gt;
+#&gt; 1 Afghanistan  1999    745   19987071  3.73
+#&gt; 2 Afghanistan  2000   2666   20595360 12.9 
+#&gt; 3 China        1999 212258 1272915272 16.7 
+#&gt; 4 China        2000 213766 1280428583 16.7
+
+# when year is equal to
+table1_rate %&gt;%
+    filter(year == 1999)
+#&gt; # A tibble: 3 x 5
+#&gt;   country      year  cases population  rate
+#&gt;   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt; &lt;dbl&gt;
+#&gt; 1 Afghanistan  1999    745   19987071  3.73
+#&gt; 2 Brazil       1999  37737  172006362 21.9 
+#&gt; 3 China        1999 212258 1272915272 16.7
+
+# Or when year is equal to or more than
+table1_rate %&gt;%
+    filter(year &gt;= 1999)
+#&gt; # A tibble: 6 x 5
+#&gt;   country      year  cases population  rate
+#&gt;   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt; &lt;dbl&gt;
+#&gt; 1 Afghanistan  1999    745   19987071  3.73
+#&gt; 2 Afghanistan  2000   2666   20595360 12.9 
+#&gt; 3 Brazil       1999  37737  172006362 21.9 
+#&gt; 4 Brazil       2000  80488  174504898 46.1 
+#&gt; 5 China        1999 212258 1272915272 16.7 
+#&gt; 6 China        2000 213766 1280428583 16.7
+
+# when year is 1999 *and* country is Brazil
+table1_rate %&gt;%
+    filter(year == 1999 &amp; country == &quot;Brazil&quot;)
+#&gt; # A tibble: 1 x 5
+#&gt;   country  year cases population  rate
+#&gt;   &lt;chr&gt;   &lt;int&gt; &lt;int&gt;      &lt;int&gt; &lt;dbl&gt;
+#&gt; 1 Brazil   1999 37737  172006362  21.9
+
+# when year is 1999 *or* country is Brazil
+table1_rate %&gt;%
+    filter(year == 1999 | country == &quot;Brazil&quot;)
+#&gt; # A tibble: 4 x 5
+#&gt;   country      year  cases population  rate
+#&gt;   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt; &lt;dbl&gt;
+#&gt; 1 Afghanistan  1999    745   19987071  3.73
+#&gt; 2 Brazil       1999  37737  172006362 21.9 
+#&gt; 3 Brazil       2000  80488  174504898 46.1 
+#&gt; 4 China        1999 212258 1272915272 16.7</code></pre>
+</div>
+<div id="sortingrearranging-your-data-by-columnvariable-arrange" class="section level2">
+<h2>Sorting/(re)arranging your data by column/variable: <code>arrange()</code></h2>
+<pre class="r"><code># ascending order by rate
+table1_rate %&gt;%
+    arrange(rate)
+#&gt; # A tibble: 6 x 5
+#&gt;   country      year  cases population  rate
+#&gt;   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt; &lt;dbl&gt;
+#&gt; 1 Afghanistan  1999    745   19987071  3.73
+#&gt; 2 Afghanistan  2000   2666   20595360 12.9 
+#&gt; 3 China        1999 212258 1272915272 16.7 
+#&gt; 4 China        2000 213766 1280428583 16.7 
+#&gt; 5 Brazil       1999  37737  172006362 21.9 
+#&gt; 6 Brazil       2000  80488  174504898 46.1
+
+# descending order by rate
+table1_rate %&gt;%
+    arrange(desc(rate))
+#&gt; # A tibble: 6 x 5
+#&gt;   country      year  cases population  rate
+#&gt;   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt; &lt;dbl&gt;
+#&gt; 1 Brazil       2000  80488  174504898 46.1 
+#&gt; 2 Brazil       1999  37737  172006362 21.9 
+#&gt; 3 China        2000 213766 1280428583 16.7 
+#&gt; 4 China        1999 212258 1272915272 16.7 
+#&gt; 5 Afghanistan  2000   2666   20595360 12.9 
+#&gt; 6 Afghanistan  1999    745   19987071  3.73
+
+# ascending order by year and rate
+table1_rate %&gt;%
+    arrange(year, rate)
+#&gt; # A tibble: 6 x 5
+#&gt;   country      year  cases population  rate
+#&gt;   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt; &lt;dbl&gt;
+#&gt; 1 Afghanistan  1999    745   19987071  3.73
+#&gt; 2 China        1999 212258 1272915272 16.7 
+#&gt; 3 Brazil       1999  37737  172006362 21.9 
+#&gt; 4 Afghanistan  2000   2666   20595360 12.9 
+#&gt; 5 China        2000 213766 1280428583 16.7 
+#&gt; 6 Brazil       2000  80488  174504898 46.1</code></pre>
+</div>
+<div id="exercise-filtering-and-logic-arranging-and-selecting" class="section level2">
+<h2>Exercise: Filtering and logic, arranging, and selecting</h2>
+<p>Time: 10 min</p>
+<pre class="r"><code># filter the rows by two variables
+# choose two numeric variables and two numbers
+___ %&gt;%
+    # format: variable &gt;= number
+    # example: weight &gt;= 50
+    filter(___ &gt;= ___ &amp; ___ &lt;= ___)
+
+# note the &quot;&amp;&quot; above, compare with &quot;|&quot; below
+# how do they differ?
+___ %&gt;%
+    filter(___ &gt;= ___ | ___ &lt;= ___)
+
+# pipe the data and continue piping
+___ %&gt;%
+    # filter a variable, preferably a character variable,
+    filter(______  ==  ______) %&gt;%
+    # sort by two variables
+    arrange(___,   ___) %&gt;%
+    # now keep only three variables
+    select(___,  ___,  ___) </code></pre>
+<p>If you are familiar with ggplot2 from the ggplot2 session, then you can optional try to visualize the dataset.</p>
+</div>
+<div id="create-a-summary-of-the-data-alone-or-by-a-groups-group_by-summarise" class="section level2">
+<h2>Create a summary of the data, alone or by a group(s): <code>group_by()</code>, <code>summarise()</code></h2>
+<pre class="r"><code># summarise on its own
+# summarise only can output one (1) value, eg. a max or an average
+table1_rate %&gt;%
+    summarise(cum_cases = sum(cases),
+              max = max(cases))
+#&gt; # A tibble: 1 x 2
+#&gt;   cum_cases    max
+#&gt;       &lt;int&gt;  &lt;int&gt;
+#&gt; 1    547660 213766
+
+# grouping by country, on its own, does nothing
+table1_rate %&gt;%
+    group_by(country) 
+#&gt; # A tibble: 6 x 5
+#&gt; # Groups:   country [3]
+#&gt;   country      year  cases population  rate
+#&gt;   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt; &lt;dbl&gt;
+#&gt; 1 Afghanistan  1999    745   19987071  3.73
+#&gt; 2 Afghanistan  2000   2666   20595360 12.9 
+#&gt; 3 Brazil       1999  37737  172006362 21.9 
+#&gt; 4 Brazil       2000  80488  174504898 46.1 
+#&gt; 5 China        1999 212258 1272915272 16.7 
+#&gt; 6 China        2000 213766 1280428583 16.7
+
+# group_by combined with summarise is powerful
+table1_rate %&gt;%
+    group_by(country) %&gt;%
+    summarise(cum_cases = sum(cases),
+              max = max(cases))
+#&gt; # A tibble: 3 x 3
+#&gt;   country     cum_cases    max
+#&gt;   &lt;chr&gt;           &lt;int&gt;  &lt;int&gt;
+#&gt; 1 Afghanistan      3411   2666
+#&gt; 2 Brazil         118225  80488
+#&gt; 3 China          426024 213766
+
+# grouping by year
+table1_rate %&gt;%
+    group_by(year) %&gt;%
+    summarise(cum_cases = sum(cases),
+              max = max(cases))
+#&gt; # A tibble: 2 x 3
+#&gt;    year cum_cases    max
+#&gt;   &lt;int&gt;     &lt;int&gt;  &lt;int&gt;
+#&gt; 1  1999    250740 212258
+#&gt; 2  2000    296920 213766
+
+# What happens if you group by year and country? How is this different from your table?
+table1_rate %&gt;%
+    group_by(year, country) %&gt;%
+    summarise(cum_cases = sum(cases),
+              max = max(cases))
+#&gt; # A tibble: 6 x 4
+#&gt; # Groups:   year [2]
+#&gt;    year country     cum_cases    max
+#&gt;   &lt;int&gt; &lt;chr&gt;           &lt;int&gt;  &lt;int&gt;
+#&gt; 1  1999 Afghanistan       745    745
+#&gt; 2  1999 Brazil          37737  37737
+#&gt; 3  1999 China          212258 212258
+#&gt; 4  2000 Afghanistan      2666   2666
+#&gt; 5  2000 Brazil          80488  80488
+#&gt; 6  2000 China          213766 213766</code></pre>
+</div>
+<div id="final-exercise-try-to-replicate-an-output." class="section level2">
+<h2>Final exercise: Try to replicate an output.</h2>
+<p>Time: Until end of the session.
+Copy and paste the following code to obtain the database economics data.</p>
+<pre class="r"><code>library(ggplot2)
+economics_data &lt;- economics %&gt;% 
+    # get the year information
+    mutate(year = as.numeric(substr(date, 0, 4))) %&gt;% 
+    as_tibble()
+economics_data
+#&gt; # A tibble: 574 x 7
+#&gt;    date         pce    pop psavert uempmed unemploy  year
+#&gt;    &lt;date&gt;     &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
+#&gt;  1 1967-07-01  507. 198712    12.6     4.5     2944  1967
+#&gt;  2 1967-08-01  510. 198911    12.6     4.7     2945  1967
+#&gt;  3 1967-09-01  516. 199113    11.9     4.6     2958  1967
+#&gt;  4 1967-10-01  512. 199311    12.9     4.9     3143  1967
+#&gt;  5 1967-11-01  517. 199498    12.8     4.7     3066  1967
+#&gt;  6 1967-12-01  525. 199657    11.8     4.8     3018  1967
+#&gt;  7 1968-01-01  531. 199808    11.7     5.1     2878  1968
+#&gt;  8 1968-02-01  534. 199920    12.3     4.5     3001  1968
+#&gt;  9 1968-03-01  544. 200056    11.7     4.1     2877  1968
+#&gt; 10 1968-04-01  544  200208    12.3     4.6     2709  1968
+#&gt; # … with 564 more rows</code></pre>
+<ul>
+<li><p>Explore the variables in the dataset by querying the economics dataframe (<code>?economics</code>).</p></li>
+<li>Using what you have learned today try to:
+<ol style="list-style-type: decimal">
+<li>Create a new variable called <code>unemploy_rate</code> that calculates the unemployment rate (i.e. proportion of the population that is unemployed).</li>
+<li>For the same decade, calculate the maximum, minimum and mean values for duration of unemployment and unemployment rate per year, then arrange these values in descending order by year.</li>
+</ol></li>
+</ul>
+<table>
+<caption><span id="tab:unnamed-chunk-14">Table 1: </span>From the data above, try to recreate this data below in this table.</caption>
+<thead>
+<tr class="header">
+<th align="right">year</th>
+<th align="right">Max_rate</th>
+<th align="right">Median_rate</th>
+<th align="right">Min_rate</th>
+<th align="right">Max_duration</th>
+<th align="right">Median_duration</th>
+<th align="right">Min_duration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">2000</td>
+<td align="right">0.0208329</td>
+<td align="right">0.0201725</td>
+<td align="right">0.0194601</td>
+<td align="right">6.3</td>
+<td align="right">6.00</td>
+<td align="right">5.2</td>
+</tr>
+<tr class="even">
+<td align="right">1999</td>
+<td align="right">0.0219826</td>
+<td align="right">0.0210060</td>
+<td align="right">0.0201378</td>
+<td align="right">6.9</td>
+<td align="right">6.25</td>
+<td align="right">5.8</td>
+</tr>
+<tr class="odd">
+<td align="right">1998</td>
+<td align="right">0.0233487</td>
+<td align="right">0.0225944</td>
+<td align="right">0.0215798</td>
+<td align="right">7.4</td>
+<td align="right">6.75</td>
+<td align="right">5.8</td>
+</tr>
+<tr class="even">
+<td align="right">1997</td>
+<td align="right">0.0263782</td>
+<td align="right">0.0244107</td>
+<td align="right">0.0230113</td>
+<td align="right">8.3</td>
+<td align="right">7.95</td>
+<td align="right">7.5</td>
+</tr>
+<tr class="odd">
+<td align="right">1996</td>
+<td align="right">0.0279358</td>
+<td align="right">0.0269796</td>
+<td align="right">0.0254912</td>
+<td align="right">8.6</td>
+<td align="right">8.30</td>
+<td align="right">7.7</td>
+</tr>
+<tr class="even">
+<td align="right">1995</td>
+<td align="right">0.0287671</td>
+<td align="right">0.0278592</td>
+<td align="right">0.0269421</td>
+<td align="right">9.1</td>
+<td align="right">8.25</td>
+<td align="right">7.9</td>
+</tr>
+<tr class="odd">
+<td align="right">1994</td>
+<td align="right">0.0329491</td>
+<td align="right">0.0301162</td>
+<td align="right">0.0273032</td>
+<td align="right">10.0</td>
+<td align="right">9.15</td>
+<td align="right">8.6</td>
+</tr>
+<tr class="even">
+<td align="right">1993</td>
+<td align="right">0.0360485</td>
+<td align="right">0.0346286</td>
+<td align="right">0.0323953</td>
+<td align="right">8.6</td>
+<td align="right">8.30</td>
+<td align="right">8.0</td>
+</tr>
+<tr class="odd">
+<td align="right">1992</td>
+<td align="right">0.0391287</td>
+<td align="right">0.0370310</td>
+<td align="right">0.0363734</td>
+<td align="right">9.3</td>
+<td align="right">8.65</td>
+<td align="right">8.1</td>
+</tr>
+<tr class="even">
+<td align="right">1991</td>
+<td align="right">0.0360757</td>
+<td align="right">0.0342328</td>
+<td align="right">0.0318196</td>
+<td align="right">7.8</td>
+<td align="right">6.85</td>
+<td align="right">6.0</td>
+</tr>
+<tr class="odd">
+<td align="right">1990</td>
+<td align="right">0.0313998</td>
+<td align="right">0.0274685</td>
+<td align="right">0.0263759</td>
+<td align="right">5.9</td>
+<td align="right">5.35</td>
+<td align="right">4.8</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+                        </div>
+                        
+                        
+
+                    </div>
+                    
+
+                    
+
+                    
+
+                    <div class="col-md-3">
+
+                        
+
+                        
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">Search</h3>
+    </div>
+
+    <div class="panel-body">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" role="search">
+            <div class="input-group">
+                <input type="search" name="q" class="form-control" placeholder="Search">
+                <input type="hidden" name="sitesearch" value="https://au-cru.github.io/site/">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">Categories</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+            
+            <li><a href="https://au-cru.github.io/site/categories/advanced">advanced (1)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/beginner">beginner (6)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/beginner-intermediate">beginner-intermediate (1)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/code-along">code-along (8)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/intermediate">intermediate (1)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/lectures">lectures (1)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/r">r (8)</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/categories/rhus">rhus (1)</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+    <div class="panel-heading">
+      <h3 class="panel-title">Tags</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="tag-cloud">
+            
+            <li><a href="https://au-cru.github.io/site/tags/asking-for-help"><i class="fa fa-tags"></i> asking-for-help</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/collaboration"><i class="fa fa-tags"></i> collaboration</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/data-management"><i class="fa fa-tags"></i> data-management</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/data-visualization"><i class="fa fa-tags"></i> data-visualization</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/data-wrangling"><i class="fa fa-tags"></i> data-wrangling</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/devtools"><i class="fa fa-tags"></i> devtools</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/dont-repeat-yourself"><i class="fa fa-tags"></i> dont-repeat-yourself</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/dplyr"><i class="fa fa-tags"></i> dplyr</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/dynamic-document-generation"><i class="fa fa-tags"></i> dynamic-document-generation</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/efficiency"><i class="fa fa-tags"></i> efficiency</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/error-messages"><i class="fa fa-tags"></i> error-messages</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/functions"><i class="fa fa-tags"></i> functions</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/ggplot2"><i class="fa fa-tags"></i> ggplot2</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/git"><i class="fa fa-tags"></i> git</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/github"><i class="fa fa-tags"></i> github</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/markdown"><i class="fa fa-tags"></i> markdown</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/package-development"><i class="fa fa-tags"></i> package-development</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/prodigenr"><i class="fa fa-tags"></i> prodigenr</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/productivity"><i class="fa fa-tags"></i> productivity</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/project-management"><i class="fa fa-tags"></i> project-management</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/r"><i class="fa fa-tags"></i> r</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/r-documentation"><i class="fa fa-tags"></i> r-documentation</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/r-markdown"><i class="fa fa-tags"></i> r-markdown</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/r-packages"><i class="fa fa-tags"></i> r-packages</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/r-projects"><i class="fa fa-tags"></i> r-projects</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/report-writing"><i class="fa fa-tags"></i> report-writing</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/reprex"><i class="fa fa-tags"></i> reprex</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/reproducibility"><i class="fa fa-tags"></i> reproducibility</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/reproducible-data-analysis"><i class="fa fa-tags"></i> reproducible-data-analysis</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/reproducible-documents"><i class="fa fa-tags"></i> reproducible-documents</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/reproducible-examples"><i class="fa fa-tags"></i> reproducible-examples</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/rmarkdown"><i class="fa fa-tags"></i> rmarkdown</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/stackoverflow"><i class="fa fa-tags"></i> stackoverflow</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/style-guide"><i class="fa fa-tags"></i> style-guide</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/styler"><i class="fa fa-tags"></i> styler</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/tidy-code"><i class="fa fa-tags"></i> tidy-code</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/usethis"><i class="fa fa-tags"></i> usethis</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/version-control"><i class="fa fa-tags"></i> version-control</a>
+            </li>
+            
+            <li><a href="https://au-cru.github.io/site/tags/workflow-management"><i class="fa fa-tags"></i> workflow-management</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+                        
+
+                    </div>
+                    
+
+                    
+
+                </div>
+                
+
+            </div>
+            
+        </div>
+        
+
+        <footer id="footer">
+    <div class="container">
+
+        
+        <div class="col-md-4 col-sm-6">
+            <h4>About us</h4>
+
+            <!-- raw HTML omitted -->
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+        <div class="col-md-4 col-sm-6">
+
+            
+
+        </div>
+        
+
+        
+        <div class="col-md-4 col-sm-6">
+
+          <h4>Contact</h4>
+
+            
+
+            <a href="/contact" class="btn btn-small btn-template-main">Go to contact page</a>
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+    </div>
+    
+</footer>
+
+
+
+
+
+
+
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-12">
+            
+            <p class="pull-left">Copyright (c) 2019, AU CRU; all rights reserved. See <a href='license/'>license</a>.</p>
+            
+            <p class="pull-right">
+              Template by <a href="http://bootstrapious.com/free-templates">Bootstrapious</a>.
+              
+
+              Ported to Hugo by <a href="https://github.com/devcows/hugo-universal-theme">DevCows</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    </div>
+    
+
+    
+<script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0/jquery.counterup.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js"></script>
+
+<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCFhtWLJcE30xOAjcbSFi-0fnoVmQZPb1Y&v=3.exp"></script>
+
+<script src="https://au-cru.github.io/site/js/hpneo.gmaps.js"></script>
+<script src="https://au-cru.github.io/site/js/gmaps.init.js"></script>
+<script src="https://au-cru.github.io/site/js/front.js"></script>
+
+
+<script src="https://au-cru.github.io/site/js/owl.carousel.min.js"></script>
+
+
+  </body>
+</html>
